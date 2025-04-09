@@ -1,0 +1,4 @@
+accessWidener v2 named
+accessible method net/minecraft/block/FireBlock areBlocksAroundFlammable (Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Z
+accessible method net/minecraft/entity/EntityType getBoatFactory (Ljava/util/function/Supplier;)Lnet/minecraft/entity/EntityType$EntityFactory;
+accessible method net/minecraft/entity/EntityType getChestBoatFactory (Ljava/util/function/Supplier;)Lnet/minecraft/entity/EntityType$EntityFactory;

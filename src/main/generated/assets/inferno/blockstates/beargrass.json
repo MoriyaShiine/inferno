@@ -1,0 +1,10 @@
+{
+  "variants": {
+	"half=lower": {
+	  "model": "inferno:block/beargrass_bottom"
+	},
+	"half=upper": {
+	  "model": "inferno:block/beargrass_top"
+	}
+  }
+}

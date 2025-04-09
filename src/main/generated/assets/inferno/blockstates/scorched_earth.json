@@ -1,0 +1,24 @@
+{
+  "variants": {
+	"snowy=false": [
+	  {
+		"model": "inferno:block/scorched_earth"
+	  },
+	  {
+		"model": "inferno:block/scorched_earth",
+		"y": 90
+	  },
+	  {
+		"model": "inferno:block/scorched_earth",
+		"y": 180
+	  },
+	  {
+		"model": "inferno:block/scorched_earth",
+		"y": 270
+	  }
+	],
+	"snowy=true": {
+	  "model": "minecraft:block/grass_block_snow"
+	}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+	"powered=false": {
+	  "model": "inferno:block/shining_oak_pressure_plate"
+	},
+	"powered=true": {
+	  "model": "inferno:block/shining_oak_pressure_plate_down"
+	}
+  }
+}

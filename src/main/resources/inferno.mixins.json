@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "moriyashiine.inferno.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+	"charredlogs.FireBlockMixin",
+	"entityfirespread.AbstractFireBlockMixin",
+	"entityfirespread.EntityMixin",
+	"entityfirespread.IgniteEnchantmentEffectMixin",
+	"entityfirespread.ProjectileFireMixin",
+	"entityfirespread.ZombieEntityMixin",
+	"onsoulfire.AbstractFireBlockMixin",
+	"onsoulfire.CampfireBlockMixin",
+	"onsoulfire.EntityMixin",
+	"onsoulfire.ProjectileFireMixin",
+	"onsoulfire.ZombieEntityMixin",
+	"scorchedearth.FireBlockMixin",
+	"scorchedearth.SpreadableBlockMixin",
+	"shiningoak.AbstractBoatEntityMixin",
+	"shiningoak.EntityMixin"
+  ],
+  "client": [
+	"lowerhudfire.client.InGameOverlayRendererMixin",
+	"onsoulfire.client.EntityRenderDispatcherMixin",
+	"onsoulfire.client.InGameOverlayRendererMixin",
+	"smokyfog.client.BackgroundRendererMixin",
+	"smokyfog.client.ClientWorldMixin"
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  }
+}

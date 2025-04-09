@@ -1,0 +1,369 @@
+{
+  "block.shining_oak_wood.break": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood/break1",
+	  "inferno:block/shining_oak_wood/break2",
+	  "inferno:block/shining_oak_wood/break3",
+	  "inferno:block/shining_oak_wood/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.shining_oak_wood.fall": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood/step1",
+	  "inferno:block/shining_oak_wood/step2",
+	  "inferno:block/shining_oak_wood/step3",
+	  "inferno:block/shining_oak_wood/step4",
+	  "inferno:block/shining_oak_wood/step5",
+	  "inferno:block/shining_oak_wood/step6"
+	],
+	"subtitle": "subtitles.block.generic.fall"
+  },
+  "block.shining_oak_wood.hit": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood/step1",
+	  "inferno:block/shining_oak_wood/step2",
+	  "inferno:block/shining_oak_wood/step3",
+	  "inferno:block/shining_oak_wood/step4",
+	  "inferno:block/shining_oak_wood/step5",
+	  "inferno:block/shining_oak_wood/step6"
+	],
+	"subtitle": "subtitles.block.generic.hit"
+  },
+  "block.shining_oak_wood.place": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood/break1",
+	  "inferno:block/shining_oak_wood/break2",
+	  "inferno:block/shining_oak_wood/break3",
+	  "inferno:block/shining_oak_wood/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.shining_oak_wood.step": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood/step1",
+	  "inferno:block/shining_oak_wood/step2",
+	  "inferno:block/shining_oak_wood/step3",
+	  "inferno:block/shining_oak_wood/step4",
+	  "inferno:block/shining_oak_wood/step5",
+	  "inferno:block/shining_oak_wood/step6"
+	],
+	"subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.shining_oak_wood_button.click_off": {
+	"sounds": [
+	  {
+		"name": "inferno:block/shining_oak_wood_button/click",
+		"pitch": 0.5,
+		"volume": 0.4
+	  }
+	],
+	"subtitle": "subtitles.block.button.click"
+  },
+  "block.shining_oak_wood_button.click_on": {
+	"sounds": [
+	  {
+		"name": "inferno:block/shining_oak_wood_button/click",
+		"pitch": 0.6,
+		"volume": 0.4
+	  }
+	],
+	"subtitle": "subtitles.block.button.click"
+  },
+  "block.shining_oak_wood_door.close": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_door/toggle1",
+	  "inferno:block/shining_oak_wood_door/toggle2",
+	  "inferno:block/shining_oak_wood_door/toggle3",
+	  "inferno:block/shining_oak_wood_door/toggle4"
+	],
+	"subtitle": "subtitles.block.door.toggle"
+  },
+  "block.shining_oak_wood_door.open": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_door/toggle1",
+	  "inferno:block/shining_oak_wood_door/toggle2",
+	  "inferno:block/shining_oak_wood_door/toggle3",
+	  "inferno:block/shining_oak_wood_door/toggle4"
+	],
+	"subtitle": "subtitles.block.door.toggle"
+  },
+  "block.shining_oak_wood_fence_gate.close": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_fence_gate/toggle1",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle2",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle3",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle4"
+	],
+	"subtitle": "subtitles.block.fence_gate.toggle"
+  },
+  "block.shining_oak_wood_fence_gate.open": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_fence_gate/toggle1",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle2",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle3",
+	  "inferno:block/shining_oak_wood_fence_gate/toggle4"
+	],
+	"subtitle": "subtitles.block.fence_gate.toggle"
+  },
+  "block.shining_oak_wood_hanging_sign.break": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_hanging_sign/break1",
+	  "inferno:block/shining_oak_wood_hanging_sign/break2",
+	  "inferno:block/shining_oak_wood_hanging_sign/break3",
+	  "inferno:block/shining_oak_wood_hanging_sign/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.shining_oak_wood_hanging_sign.fall": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_hanging_sign/step1",
+	  "inferno:block/shining_oak_wood_hanging_sign/step2",
+	  "inferno:block/shining_oak_wood_hanging_sign/step3",
+	  "inferno:block/shining_oak_wood_hanging_sign/step4"
+	],
+	"subtitle": "subtitles.block.generic.fall"
+  },
+  "block.shining_oak_wood_hanging_sign.hit": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_hanging_sign/step1",
+	  "inferno:block/shining_oak_wood_hanging_sign/step2",
+	  "inferno:block/shining_oak_wood_hanging_sign/step3",
+	  "inferno:block/shining_oak_wood_hanging_sign/step4"
+	],
+	"subtitle": "subtitles.block.generic.hit"
+  },
+  "block.shining_oak_wood_hanging_sign.place": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_hanging_sign/break1",
+	  "inferno:block/shining_oak_wood_hanging_sign/break2",
+	  "inferno:block/shining_oak_wood_hanging_sign/break3",
+	  "inferno:block/shining_oak_wood_hanging_sign/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.shining_oak_wood_hanging_sign.step": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_hanging_sign/step1",
+	  "inferno:block/shining_oak_wood_hanging_sign/step2",
+	  "inferno:block/shining_oak_wood_hanging_sign/step3",
+	  "inferno:block/shining_oak_wood_hanging_sign/step4"
+	],
+	"subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.shining_oak_leaves.break": {
+	"sounds": [
+	  "inferno:block/shining_oak_leaves/break1",
+	  "inferno:block/shining_oak_leaves/break2",
+	  "inferno:block/shining_oak_leaves/break3",
+	  "inferno:block/shining_oak_leaves/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.shining_oak_leaves.fall": {
+	"sounds": [
+	  "inferno:block/shining_oak_leaves/step1",
+	  "inferno:block/shining_oak_leaves/step2",
+	  "inferno:block/shining_oak_leaves/step3",
+	  "inferno:block/shining_oak_leaves/step4",
+	  "inferno:block/shining_oak_leaves/step5"
+	],
+	"subtitle": "subtitles.block.generic.fall"
+  },
+  "block.shining_oak_leaves.hit": {
+	"sounds": [
+	  {
+		"name": "inferno:block/shining_oak_leaves/step1",
+		"volume": 0.8
+	  },
+	  {
+		"name": "inferno:block/shining_oak_leaves/step2",
+		"volume": 0.8
+	  },
+	  {
+		"name": "inferno:block/shining_oak_leaves/step3",
+		"volume": 0.8
+	  },
+	  {
+		"name": "inferno:block/shining_oak_leaves/step4",
+		"volume": 0.8
+	  },
+	  {
+		"name": "inferno:block/shining_oak_leaves/step5",
+		"volume": 0.8
+	  }
+	],
+	"subtitle": "subtitles.block.generic.hit"
+  },
+  "block.shining_oak_leaves.place": {
+	"sounds": [
+	  "inferno:block/shining_oak_leaves/break1",
+	  "inferno:block/shining_oak_leaves/break2",
+	  "inferno:block/shining_oak_leaves/break3",
+	  "inferno:block/shining_oak_leaves/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.shining_oak_leaves.step": {
+	"sounds": [
+	  "inferno:block/shining_oak_leaves/step1",
+	  "inferno:block/shining_oak_leaves/step2",
+	  "inferno:block/shining_oak_leaves/step3",
+	  "inferno:block/shining_oak_leaves/step4",
+	  "inferno:block/shining_oak_leaves/step5"
+	],
+	"subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.shining_oak_sapling.break": {
+	"sounds": [
+	  "inferno:block/shining_oak_sapling/break1",
+	  "inferno:block/shining_oak_sapling/break2",
+	  "inferno:block/shining_oak_sapling/break3",
+	  "inferno:block/shining_oak_sapling/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.shining_oak_sapling.place": {
+	"sounds": [
+	  "inferno:block/shining_oak_sapling/break1",
+	  "inferno:block/shining_oak_sapling/break2",
+	  "inferno:block/shining_oak_sapling/break3",
+	  "inferno:block/shining_oak_sapling/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.shining_oak_wood_pressure_plate.click_off": {
+	"sounds": [
+	  {
+		"name": "inferno:block/shining_oak_wood_button/click",
+		"pitch": 0.7,
+		"volume": 0.3
+	  }
+	],
+	"subtitle": "subtitles.block.pressure_plate.click"
+  },
+  "block.shining_oak_wood_pressure_plate.click_on": {
+	"sounds": [
+	  {
+		"name": "inferno:block/shining_oak_wood_button/click",
+		"pitch": 0.8,
+		"volume": 0.3
+	  }
+	],
+	"subtitle": "subtitles.block.pressure_plate.click"
+  },
+  "block.shining_oak_wood_trapdoor.close": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_trapdoor/toggle1",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle2",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle3",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle4"
+	],
+	"subtitle": "subtitles.block.trapdoor.toggle"
+  },
+  "block.shining_oak_wood_trapdoor.open": {
+	"sounds": [
+	  "inferno:block/shining_oak_wood_trapdoor/toggle1",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle2",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle3",
+	  "inferno:block/shining_oak_wood_trapdoor/toggle4"
+	],
+	"subtitle": "subtitles.block.trapdoor.toggle"
+  },
+  "block.charred_log.break": {
+	"sounds": [
+	  "inferno:block/charred_log/break1",
+	  "inferno:block/charred_log/break2",
+	  "inferno:block/charred_log/break3",
+	  "inferno:block/charred_log/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.charred_log.fall": {
+	"sounds": [
+	  "inferno:block/charred_log/step1",
+	  "inferno:block/charred_log/step2",
+	  "inferno:block/charred_log/step3",
+	  "inferno:block/charred_log/step4",
+	  "inferno:block/charred_log/step5",
+	  "inferno:block/charred_log/step6"
+	],
+	"subtitle": "subtitles.block.generic.fall"
+  },
+  "block.charred_log.hit": {
+	"sounds": [
+	  "inferno:block/charred_log/step1",
+	  "inferno:block/charred_log/step2",
+	  "inferno:block/charred_log/step3",
+	  "inferno:block/charred_log/step4",
+	  "inferno:block/charred_log/step5",
+	  "inferno:block/charred_log/step6"
+	],
+	"subtitle": "subtitles.block.generic.hit"
+  },
+  "block.charred_log.place": {
+	"sounds": [
+	  "inferno:block/charred_log/break1",
+	  "inferno:block/charred_log/break2",
+	  "inferno:block/charred_log/break3",
+	  "inferno:block/charred_log/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.charred_log.step": {
+	"sounds": [
+	  "inferno:block/charred_log/step1",
+	  "inferno:block/charred_log/step2",
+	  "inferno:block/charred_log/step3",
+	  "inferno:block/charred_log/step4",
+	  "inferno:block/charred_log/step5",
+	  "inferno:block/charred_log/step6"
+	],
+	"subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.scorched_earth.break": {
+	"sounds": [
+	  "inferno:block/scorched_earth/break1",
+	  "inferno:block/scorched_earth/break2",
+	  "inferno:block/scorched_earth/break3",
+	  "inferno:block/scorched_earth/break4"
+	],
+	"subtitle": "subtitles.block.generic.break"
+  },
+  "block.scorched_earth.fall": {
+	"sounds": [
+	  "inferno:block/scorched_earth/step1",
+	  "inferno:block/scorched_earth/step2",
+	  "inferno:block/scorched_earth/step3",
+	  "inferno:block/scorched_earth/step4"
+	],
+	"subtitle": "subtitles.block.generic.fall"
+  },
+  "block.scorched_earth.hit": {
+	"sounds": [
+	  "inferno:block/scorched_earth/step1",
+	  "inferno:block/scorched_earth/step2",
+	  "inferno:block/scorched_earth/step3",
+	  "inferno:block/scorched_earth/step4"
+	],
+	"subtitle": "subtitles.block.generic.hit"
+  },
+  "block.scorched_earth.place": {
+	"sounds": [
+	  "inferno:block/scorched_earth/break1",
+	  "inferno:block/scorched_earth/break2",
+	  "inferno:block/scorched_earth/break3",
+	  "inferno:block/scorched_earth/break4"
+	],
+	"subtitle": "subtitles.block.generic.place"
+  },
+  "block.scorched_earth.step": {
+	"sounds": [
+	  "inferno:block/scorched_earth/step1",
+	  "inferno:block/scorched_earth/step2",
+	  "inferno:block/scorched_earth/step3",
+	  "inferno:block/scorched_earth/step4"
+	],
+	"subtitle": "subtitles.block.generic.footsteps"
+  }
+}

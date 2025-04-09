@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "inferno",
+  "version": "${version}",
+  "name": "Inferno",
+  "description": "A mod that rekindles features related to fire",
+  "authors": [
+	"MoriyaShiine",
+	"8onfire",
+	"cybercat5555",
+	"EightSidedSquare"
+  ],
+  "contact": {
+	"homepage": "https://modrinth.com/mod/inferno",
+	"sources": "https://github.com/MoriyaShiine/inferno",
+	"issues": "https://github.com/MoriyaShiine/inferno/issues"
+  },
+  "license": "All Rights Reserved",
+  "icon": "assets/inferno/icon.png",
+  "environment": "*",
+  "entrypoints": {
+	"fabric-datagen": [
+	  "moriyashiine.inferno.data.ModDataGenerator"
+	],
+	"main": [
+	  "moriyashiine.inferno.common.Inferno"
+	],
+	"client": [
+	  "moriyashiine.inferno.client.InfernoClient"
+	],
+	"cardinal-components-entity": [
+	  "moriyashiine.inferno.common.init.ModEntityComponents"
+	]
+  },
+  "mixins": [
+	"inferno.mixins.json"
+  ],
+  "accessWidener": "inferno.accesswidener",
+  "depends": {
+	"fabricloader": "*",
+	"minecraft": "~1.21.5",
+	"java": ">=21",
+	"fabric-api": "*",
+	"strawberrylib": "*"
+  },
+  "custom": {
+	"cardinal-components": [
+	  "inferno:entity_fire_spread",
+	  "inferno:on_soul_fire"
+	]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+	"type=bottom": {
+	  "model": "inferno:block/shining_oak_slab"
+	},
+	"type=double": {
+	  "model": "inferno:block/shining_oak_planks"
+	},
+	"type=top": {
+	  "model": "inferno:block/shining_oak_slab_top"
+	}
+  }
+}

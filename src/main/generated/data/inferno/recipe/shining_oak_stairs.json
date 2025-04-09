@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_stairs",
+  "key": {
+	"#": "inferno:shining_oak_planks"
+  },
+  "pattern": [
+	"#  ",
+	"## ",
+	"###"
+  ],
+  "result": {
+	"count": 4,
+	"id": "inferno:shining_oak_stairs"
+  }
+}

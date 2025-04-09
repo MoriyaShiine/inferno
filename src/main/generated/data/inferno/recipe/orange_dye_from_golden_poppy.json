@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "orange_dye",
+  "ingredients": [
+	"inferno:golden_poppy"
+  ],
+  "result": {
+	"count": 1,
+	"id": "minecraft:orange_dye"
+  }
+}

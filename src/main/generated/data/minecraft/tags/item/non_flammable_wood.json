@@ -1,0 +1,20 @@
+{
+  "values": [
+	"inferno:shining_oak_sapling",
+	"inferno:shining_oak_log",
+	"inferno:shining_oak_wood",
+	"inferno:stripped_shining_oak_log",
+	"inferno:stripped_shining_oak_wood",
+	"inferno:shining_oak_planks",
+	"inferno:shining_oak_stairs",
+	"inferno:shining_oak_slab",
+	"inferno:shining_oak_fence",
+	"inferno:shining_oak_fence_gate",
+	"inferno:shining_oak_door",
+	"inferno:shining_oak_trapdoor",
+	"inferno:shining_oak_pressure_plate",
+	"inferno:shining_oak_button",
+	"inferno:shining_oak_sign",
+	"inferno:shining_oak_hanging_sign"
+  ]
+}

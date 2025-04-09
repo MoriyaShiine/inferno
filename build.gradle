@@ -1,0 +1,85 @@
+plugins {
+    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'io.github.ladysnake.chenille' version '0.14.0'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+chenille {
+    customLicense = rootProject.file("LICENSE")
+    github = new URL("https://github.com/MoriyaShiine/inferno")
+    javaVersion = 21
+    configurePublishing {
+        withLadysnakeMaven()
+        withGithubRelease()
+        withModrinthRelease()
+        withCurseforgeRelease()
+    }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/inferno.accesswidener")
+}
+
+fabricApi {
+    configureDataGeneration() {
+        client = true
+    }
+}
+
+repositories {
+    chenille.repositories.ladysnake()
+    chenille.repositories.terraformers()
+    chenille.repositories.modrinth()
+    maven {
+        name "datasync"
+        url "https://maven.uuid.gg/releases"
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${cardinal_components_version}"
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${cardinal_components_version}"
+    modIncludeImplementation "maven.modrinth:midnightlib:${midnightlib_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation "moriyashiine:strawberrylib:${strawberrylib_version}"
+
+    modLocalRuntime "com.terraformersmc:modmenu:${mod_menu_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": inputs.properties.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+java {
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    inputs.property "archivesName", project.base.archivesName
+
+    from("LICENSE") {
+        rename { "${it}_${inputs.properties.archivesName}" }
+    }
+}

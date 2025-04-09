@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+	"bottom": "minecraft:block/dirt",
+	"side": "inferno:block/scorched_earth_side",
+	"top": "inferno:block/scorched_earth_top"
+  }
+}

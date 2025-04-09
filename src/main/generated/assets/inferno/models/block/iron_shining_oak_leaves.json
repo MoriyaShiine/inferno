@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+	"all": "inferno:block/iron_shining_oak_leaves"
+  }
+}

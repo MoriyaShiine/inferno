@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+	"layer0": "inferno:item/shining_oak_sign"
+  }
+}

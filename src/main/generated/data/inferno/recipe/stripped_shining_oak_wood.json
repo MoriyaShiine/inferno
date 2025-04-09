@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+	"#": "inferno:stripped_shining_oak_log"
+  },
+  "pattern": [
+	"##",
+	"##"
+  ],
+  "result": {
+	"count": 3,
+	"id": "inferno:stripped_shining_oak_wood"
+  }
+}

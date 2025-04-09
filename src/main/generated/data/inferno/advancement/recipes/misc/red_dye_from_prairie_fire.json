@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+	"has_prairie_fire": {
+	  "conditions": {
+		"items": [
+		  {
+			"items": "inferno:prairie_fire"
+		  }
+		]
+	  },
+	  "trigger": "minecraft:inventory_changed"
+	},
+	"has_the_recipe": {
+	  "conditions": {
+		"recipe": "minecraft:red_dye_from_prairie_fire"
+	  },
+	  "trigger": "minecraft:recipe_unlocked"
+	}
+  },
+  "requirements": [
+	[
+	  "has_the_recipe",
+	  "has_prairie_fire"
+	]
+  ],
+  "rewards": {
+	"recipes": [
+	  "minecraft:red_dye_from_prairie_fire"
+	]
+  }
+}
