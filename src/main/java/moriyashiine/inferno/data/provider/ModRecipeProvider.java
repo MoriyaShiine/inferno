@@ -9,6 +9,7 @@ import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.inferno.common.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.SuspiciousStewIngredient;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
@@ -44,6 +45,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				offerSingleOutputShapelessRecipe(Items.ORANGE_DYE, ModItems.GOLDEN_POPPY, "orange_dye");
 				offerSingleOutputShapelessRecipe(Items.MAGENTA_DYE, ModItems.FIREWEED, "magenta_dye");
 				offerSingleOutputShapelessRecipe(Items.RED_DYE, ModItems.PRAIRIE_FIRE, "red_dye");
+				offerSuspiciousStewRecipe(ModItems.GOLDENROD, SuspiciousStewIngredient.of(ModItems.GOLDENROD));
+				offerSuspiciousStewRecipe(ModItems.GOLDEN_POPPY, SuspiciousStewIngredient.of(ModItems.GOLDEN_POPPY));
+				offerSuspiciousStewRecipe(ModItems.FIREWEED, SuspiciousStewIngredient.of(ModItems.FIREWEED));
+				offerSuspiciousStewRecipe(ModItems.PRAIRIE_FIRE, SuspiciousStewIngredient.of(ModItems.PRAIRIE_FIRE));
 			}
 		};
 	}
