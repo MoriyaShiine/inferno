@@ -7,6 +7,7 @@ import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.inferno.common.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -19,12 +20,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		// INFERNO
 		getOrCreateTagBuilder(ModItemTags.SHINING_OAK_LOGS)
 				.add(ModItems.SHINING_OAK_LOG)
 				.add(ModItems.SHINING_OAK_WOOD)
 				.add(ModItems.STRIPPED_SHINING_OAK_LOG)
 				.add(ModItems.STRIPPED_SHINING_OAK_WOOD);
-
+		// CONVENTIONAL
+		// shining oak
+		getOrCreateTagBuilder(ConventionalItemTags.STRIPPED_LOGS)
+				.add(ModItems.STRIPPED_SHINING_OAK_LOG);
+		getOrCreateTagBuilder(ConventionalItemTags.STRIPPED_WOODS)
+				.add(ModItems.STRIPPED_SHINING_OAK_WOOD);
+		getOrCreateTagBuilder(ConventionalItemTags.WOODEN_FENCES)
+				.add(ModItems.SHINING_OAK_FENCE);
+		getOrCreateTagBuilder(ConventionalItemTags.WOODEN_FENCE_GATES)
+				.add(ModItems.SHINING_OAK_FENCE_GATE);
+		// VANILLA
 		// shining oak
 		getOrCreateTagBuilder(ItemTags.NON_FLAMMABLE_WOOD)
 				.add(ModItems.SHINING_OAK_SAPLING)
@@ -75,9 +87,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		getOrCreateTagBuilder(ItemTags.CHEST_BOATS)
 				.add(ModItems.SHINING_OAK_CHEST_RAFT);
 		// remains
+		getOrCreateTagBuilder(ItemTags.DIRT)
+				.add(ModItems.SCORCHED_EARTH);
 		getOrCreateTagBuilder(ItemTags.FURNACE_MINECART_FUEL)
 				.add(ModItems.CHARRED_LOG);
 		// plants
+		getOrCreateTagBuilder(ItemTags.BEE_FOOD)
+				.add(ModItems.BEARGRASS)
+				.add(ModItems.GOLDENROD)
+				.add(ModItems.GOLDEN_POPPY)
+				.add(ModItems.FIREWEED)
+				.add(ModItems.PRAIRIE_FIRE);
 		getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
 				.add(ModItems.GOLDENROD)
 				.add(ModItems.GOLDEN_POPPY)

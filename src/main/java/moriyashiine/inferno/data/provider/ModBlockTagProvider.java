@@ -20,6 +20,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		// INFERNO
 		getOrCreateTagBuilder(ModBlockTags.GENERIC_IRON_BLOCKS)
 				.addOptionalTag(ConventionalBlockTags.IRON_ORES)
 				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_IRON)
@@ -40,15 +41,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.GOLDEN_POPPY)
 				.add(ModBlocks.FIREWEED)
 				.add(ModBlocks.PRAIRIE_FIRE);
-
-		getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-				.add(ModBlocks.CHARRED_LOG);
-		getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
-				.add(ModBlocks.SCORCHED_EARTH);
-		getOrCreateTagBuilder(BlockTags.DIRT)
-				.add(ModBlocks.SCORCHED_EARTH);
-		getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK)
-				.add(ModBlocks.SCORCHED_EARTH);
+		// CONVENTIONAL
+		getOrCreateTagBuilder(ConventionalBlockTags.STRIPPED_LOGS)
+				.add(ModBlocks.STRIPPED_SHINING_OAK_LOG);
+		getOrCreateTagBuilder(ConventionalBlockTags.STRIPPED_WOODS)
+				.add(ModBlocks.STRIPPED_SHINING_OAK_WOOD);
+		getOrCreateTagBuilder(ConventionalBlockTags.WOODEN_FENCES)
+				.add(ModBlocks.SHINING_OAK_FENCE);
+		getOrCreateTagBuilder(ConventionalBlockTags.WOODEN_FENCE_GATES)
+				.add(ModBlocks.SHINING_OAK_FENCE_GATE);
+		// VANILLA
 		// shining oak
 		getOrCreateTagBuilder(BlockTags.LOGS)
 				.addTag(ModBlockTags.SHINING_OAK_LOGS);
@@ -83,7 +85,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.SHINING_OAK_HANGING_SIGN);
 		getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
 				.add(ModBlocks.SHINING_OAK_WALL_HANGING_SIGN);
+		// remains
+		getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+				.add(ModBlocks.CHARRED_LOG);
+		getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+				.add(ModBlocks.SCORCHED_EARTH);
+		getOrCreateTagBuilder(BlockTags.DIRT)
+				.add(ModBlocks.SCORCHED_EARTH);
+		getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK)
+				.add(ModBlocks.SCORCHED_EARTH);
 		// plants
+		getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
+				.add(ModBlocks.BEARGRASS)
+				.add(ModBlocks.GOLDENROD)
+				.add(ModBlocks.GOLDEN_POPPY)
+				.add(ModBlocks.FIREWEED)
+				.add(ModBlocks.PRAIRIE_FIRE);
 		getOrCreateTagBuilder(BlockTags.FLOWERS)
 				.add(ModBlocks.BEARGRASS);
 		getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
