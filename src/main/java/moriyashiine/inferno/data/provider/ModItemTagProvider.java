@@ -54,7 +54,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(ModItems.SHINING_OAK_PRESSURE_PLATE)
 				.add(ModItems.SHINING_OAK_BUTTON)
 				.add(ModItems.SHINING_OAK_SIGN)
-				.add(ModItems.SHINING_OAK_HANGING_SIGN);
+				.add(ModItems.SHINING_OAK_HANGING_SIGN)
+				.add(ModItems.SHINING_OAK_RAFT)
+				.add(ModItems.SHINING_OAK_CHEST_RAFT);
 		getOrCreateTagBuilder(ItemTags.SAPLINGS)
 				.add(ModItems.SHINING_OAK_SAPLING);
 		getOrCreateTagBuilder(ItemTags.LEAVES)
