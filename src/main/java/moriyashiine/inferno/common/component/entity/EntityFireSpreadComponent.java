@@ -4,8 +4,8 @@
 package moriyashiine.inferno.common.component.entity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
 
 public class EntityFireSpreadComponent implements ServerTickingComponent {
@@ -17,13 +17,13 @@ public class EntityFireSpreadComponent implements ServerTickingComponent {
 	}
 
 	@Override
-	public void readFromNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-		allowFireSpread = tag.getBoolean("AllowFireSpread", false);
+	public void readData(ReadView readView) {
+		allowFireSpread = readView.getBoolean("AllowFireSpread", false);
 	}
 
 	@Override
-	public void writeToNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-		tag.putBoolean("AllowFireSpread", allowFireSpread);
+	public void writeData(WriteView writeView) {
+		writeView.putBoolean("AllowFireSpread", allowFireSpread);
 	}
 
 	@Override

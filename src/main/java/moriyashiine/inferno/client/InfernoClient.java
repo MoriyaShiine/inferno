@@ -9,13 +9,13 @@ import moriyashiine.inferno.common.init.ModBlocks;
 import moriyashiine.inferno.common.init.ModEntityTypes;
 import moriyashiine.inferno.common.init.ModParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.particle.LeavesParticle;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.RaftEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.RaftEntityModel;
@@ -31,15 +31,15 @@ public class InfernoClient implements ClientModInitializer {
 
 	private void initBlockRenderers() {
 		// shining oak
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.SHINING_OAK_SAPLING, ModBlocks.POTTED_SHINING_OAK_SAPLING);
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.IRON_SHINING_OAK_LEAVES, ModBlocks.GOLDEN_SHINING_OAK_LEAVES);
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.SHINING_OAK_DOOR, ModBlocks.SHINING_OAK_TRAPDOOR);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.SHINING_OAK_SAPLING, ModBlocks.POTTED_SHINING_OAK_SAPLING);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.IRON_SHINING_OAK_LEAVES, ModBlocks.GOLDEN_SHINING_OAK_LEAVES);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.SHINING_OAK_DOOR, ModBlocks.SHINING_OAK_TRAPDOOR);
 		// plants
-		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BEARGRASS, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.GOLDENROD, ModBlocks.POTTED_GOLDENROD);
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY);
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED);
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE);
+		BlockRenderLayerMap.putBlock(ModBlocks.BEARGRASS, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.GOLDENROD, ModBlocks.POTTED_GOLDENROD);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED);
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE);
 	}
 
 	private void initEntityRenderers() {

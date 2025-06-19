@@ -5,8 +5,8 @@ package moriyashiine.inferno.common.component.entity;
 
 import moriyashiine.inferno.common.init.ModEntityComponents;
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
 
@@ -20,15 +20,15 @@ public class OnSoulFireComponent implements AutoSyncedComponent, ServerTickingCo
 	}
 
 	@Override
-	public void readFromNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-		onSoulFire = tag.getBoolean("OnSoulFire", false);
-		syncTicks = tag.getInt("SyncTicks", 0);
+	public void readData(ReadView readView) {
+		onSoulFire = readView.getBoolean("OnSoulFire", false);
+		syncTicks = readView.getInt("SyncTicks", 0);
 	}
 
 	@Override
-	public void writeToNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-		tag.putBoolean("OnSoulFire", onSoulFire);
-		tag.putInt("SyncTicks", syncTicks);
+	public void writeData(WriteView writeView) {
+		writeView.putBoolean("OnSoulFire", onSoulFire);
+		writeView.putInt("SyncTicks", syncTicks);
 	}
 
 	@Override

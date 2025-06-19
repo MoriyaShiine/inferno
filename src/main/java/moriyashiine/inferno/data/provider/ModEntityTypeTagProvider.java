@@ -20,10 +20,10 @@ public class ModEntityTypeTagProvider extends FabricTagProvider.EntityTypeTagPro
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 		// CONVENTIONAL
-		getOrCreateTagBuilder(ConventionalEntityTypeTags.BOATS)
+		valueLookupBuilder(ConventionalEntityTypeTags.BOATS)
 				.add(ModEntityTypes.SHINING_OAK_CHEST_RAFT);
 		// VANILLA
-		getOrCreateTagBuilder(EntityTypeTags.BOAT)
+		valueLookupBuilder(EntityTypeTags.BOAT)
 				.add(ModEntityTypes.SHINING_OAK_RAFT);
 	}
 }

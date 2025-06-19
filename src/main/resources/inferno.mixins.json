@@ -23,8 +23,9 @@
 	"lowerhudfire.client.InGameOverlayRendererMixin",
 	"onsoulfire.client.EntityRenderDispatcherMixin",
 	"onsoulfire.client.InGameOverlayRendererMixin",
-	"smokyfog.client.BackgroundRendererMixin",
-	"smokyfog.client.ClientWorldMixin"
+	"smokyfog.client.AtmosphericFogModifierMixin",
+	"smokyfog.client.ClientWorldMixin",
+	"smokyfog.client.StandardFogModifierMixin"
   ],
   "injectors": {
 	"defaultRequire": 1
