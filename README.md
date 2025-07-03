@@ -1,5 +1,10 @@
-# Inferno
-Inferno makes several changes to how fire works in order to create a more dynamic experience, as well as adding some shiny new content to reward you for aiding in environmental restoration.
+<div align="center">
+  <h1>Inferno</h1>
+  <a href="https://modrinth.com/mod/strawberrylib"><img src="https://github.com/ContentSMP/Badges/raw/refs/heads/main/strawberrylib/cozy_vector.svg"></a>
+  <a href="https://discord.gg/Am6M8VQ"><img src="https://github.com/intergrav/devins-badges/raw/refs/heads/v3/assets/cozy/social/discord-singular_vector.svg"></a>
+  <a href="https://ko-fi.com/moriyashiine"><img src="https://github.com/intergrav/devins-badges/raw/refs/heads/v3/assets/cozy/donate/kofi-singular_vector.svg"></a>
+  <h3>Makes several changes to how fire works in order to create a more dynamic experience, as well as adding some shiny new content to reward you for aiding in environmental restoration.</h3>
+</div>
 
 ### Smoke
 - The more fire is nearby, the more intense smoke will be.
@@ -41,9 +46,3 @@ Inferno makes several changes to how fire works in order to create a more dynami
 
 ### Torch Ignition
 - Attacking an entity with a Torch or Soul Torch will destroy the torch and ignite them appropriately.
-
-## External Links
-### Support me on Ko-fi! Any amount is appreciated, and you can get cosmetic benefits for doing so <3
-[![Ko-fi](https://github.com/MoriyaShiine/strawberrylib/blob/main/.webassets/kofi.png?raw=true)](https://ko-fi.com/moriyashiine)
-### Join my Discord!
-[![Discord](https://github.com/MoriyaShiine/strawberrylib/blob/main/.webassets/discord.png?raw=true)](https://discord.gg/Am6M8VQ)
