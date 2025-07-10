@@ -23,7 +23,7 @@ public abstract class ClientWorldMixin {
 
 	@Inject(method = "randomBlockDisplayTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/world/ClientWorld;getBiome(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/registry/entry/RegistryEntry;"))
 	private void inferno$smokyFog(int centerX, int centerY, int centerZ, int radius, Random random, Block block, BlockPos.Mutable pos, CallbackInfo ci) {
-		if (SmokyFogEvent.fireBlocks == SmokyFogEvent.MAX_FIRE_BLOCKS && random.nextFloat() < 0.1F) {
+		if (SmokyFogEvent.hasMaxFireBlocks() && random.nextFloat() < 0.1F) {
 			addParticleClient(ParticleTypes.ASH, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble(), pos.getZ() + random.nextDouble(), 0, 0, 0);
 		}
 	}

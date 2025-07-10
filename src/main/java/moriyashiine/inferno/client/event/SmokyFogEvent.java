@@ -13,8 +13,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class SmokyFogEvent implements ClientTickEvents.EndWorldTick {
-	public static final int MAX_FIRE_BLOCKS = 64;
-	public static int fireBlocks = 0;
+	private static final int MAX_FIRE_BLOCKS = 64;
+	private static int fireBlocks = 0;
 
 	private static final int UPDATE_TICKS = 10;
 	private static int ticks = 0, targetFireBlocks = 0;
@@ -51,5 +51,13 @@ public class SmokyFogEvent implements ClientTickEvents.EndWorldTick {
 		} else {
 			targetFireBlocks = 0;
 		}
+	}
+
+	public static boolean hasMaxFireBlocks() {
+		return fireBlocks == MAX_FIRE_BLOCKS;
+	}
+
+	public static float getProgress() {
+		return fireBlocks / (float) MAX_FIRE_BLOCKS;
 	}
 }

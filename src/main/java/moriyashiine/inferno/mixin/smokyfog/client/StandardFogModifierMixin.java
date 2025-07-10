@@ -15,9 +15,9 @@ import org.spongepowered.asm.mixin.injection.At;
 public class StandardFogModifierMixin {
 	@ModifyReturnValue(method = "getFogColor", at = @At("RETURN"))
 	private int inferno$smokyFog(int original) {
-		Vector3f color = ColorHelper.toVector(original);
-		if (SmokyFogEvent.fireBlocks > 0) {
-			float progress = SmokyFogEvent.fireBlocks / (float) SmokyFogEvent.MAX_FIRE_BLOCKS;
+		float progress = SmokyFogEvent.getProgress();
+		if (progress > 0) {
+			Vector3f color = ColorHelper.toVector(original);
 			float green = color.y();
 			float blue = color.z();
 			green = Math.max(Math.min(0.2F, green), green - progress * 0.125F);
