@@ -13,7 +13,7 @@
 	},
 	"has_the_recipe": {
 	  "conditions": {
-		"recipe": "minecraft:suspicious_stew_from_goldenrod"
+		"recipe": "inferno:suspicious_stew_from_goldenrod"
 	  },
 	  "trigger": "minecraft:recipe_unlocked"
 	}
@@ -26,7 +26,7 @@
   ],
   "rewards": {
 	"recipes": [
-	  "minecraft:suspicious_stew_from_goldenrod"
+	  "inferno:suspicious_stew_from_goldenrod"
 	]
   }
 }
