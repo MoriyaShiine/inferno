@@ -9,10 +9,8 @@ import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.strawberrylib.api.module.SLibDataUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.TexturedModel;
+import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.WeightedVariant;
 
 public class ModModelProvider extends FabricModelProvider {
 	public ModModelProvider(FabricDataOutput output) {
@@ -38,11 +36,27 @@ public class ModModelProvider extends FabricModelProvider {
 		generator.registerFlowerPotPlantAndItem(ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY, BlockStateModelGenerator.CrossType.NOT_TINTED);
 		generator.registerFlowerPotPlantAndItem(ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED, BlockStateModelGenerator.CrossType.NOT_TINTED);
 		generator.registerFlowerPotPlantAndItem(ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE, BlockStateModelGenerator.CrossType.NOT_TINTED);
+		// copper fire
+		registerCopperFire(generator);
 	}
 
 	@Override
 	public void generateItemModels(ItemModelGenerator generator) {
 		generator.register(ModItems.SHINING_OAK_RAFT, Models.GENERATED);
 		generator.register(ModItems.SHINING_OAK_CHEST_RAFT, Models.GENERATED);
+	}
+
+	private void registerCopperFire(BlockStateModelGenerator generator) {
+		WeightedVariant weightedVariant = generator.getFireFloorModels(ModBlocks.COPPER_FIRE);
+		WeightedVariant weightedVariant2 = generator.getFireSideModels(ModBlocks.COPPER_FIRE);
+		generator.blockStateCollector
+				.accept(
+						MultipartBlockModelDefinitionCreator.create(ModBlocks.COPPER_FIRE)
+								.with(weightedVariant)
+								.with(weightedVariant2)
+								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_90))
+								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_180))
+								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_270))
+				);
 	}
 }

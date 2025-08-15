@@ -9,6 +9,8 @@ public class ModConfig extends MidnightConfig {
 	@Entry
 	public static boolean charredLogs = true;
 	@Entry
+	public static boolean copperFire = true;
+	@Entry
 	public static boolean onSoulFire = true;
 	@Entry
 	public static boolean scorchedEarth = true;

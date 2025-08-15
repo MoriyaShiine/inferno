@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
 	"charredlogs.FireBlockMixin",
+	"copperfire.AbstractFireBlockMixin",
 	"entityfirespread.AbstractFireBlockMixin",
 	"entityfirespread.EntityMixin",
 	"entityfirespread.IgniteEnchantmentEffectMixin",

@@ -30,6 +30,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_GOLD)
 				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD);
 
+		valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS) // todo use 1.21.9 copper blocks tag
+				.addOptionalTag(BlockTags.COPPER_ORES)
+				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
+				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER);
 		valueLookupBuilder(ModBlockTags.SHINING_OAK_LOGS)
 				.add(ModBlocks.SHINING_OAK_LOG)
 				.add(ModBlocks.SHINING_OAK_WOOD)
@@ -115,5 +119,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.POTTED_GOLDEN_POPPY)
 				.add(ModBlocks.POTTED_FIREWEED)
 				.add(ModBlocks.POTTED_PRAIRIE_FIRE);
+		// copper fire
+		valueLookupBuilder(BlockTags.FIRE)
+				.add(ModBlocks.COPPER_FIRE);
 	}
 }

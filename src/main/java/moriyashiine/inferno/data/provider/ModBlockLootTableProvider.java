@@ -54,5 +54,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 		addPottedPlantDrops(ModBlocks.POTTED_FIREWEED);
 		addDrop(ModBlocks.PRAIRIE_FIRE);
 		addPottedPlantDrops(ModBlocks.POTTED_PRAIRIE_FIRE);
+		// copper fire
+		addDrop(ModBlocks.COPPER_FIRE, dropsNothing());
 	}
 }

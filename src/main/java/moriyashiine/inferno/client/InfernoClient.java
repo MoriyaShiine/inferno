@@ -40,6 +40,8 @@ public class InfernoClient implements ClientModInitializer {
 		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY);
 		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED);
 		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT, ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE);
+		// copper fire
+		BlockRenderLayerMap.putBlock(ModBlocks.COPPER_FIRE, BlockRenderLayer.CUTOUT);
 	}
 
 	private void initEntityRenderers() {

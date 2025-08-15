@@ -5,6 +5,7 @@ package moriyashiine.inferno.common.init;
 
 import moriyashiine.inferno.common.Inferno;
 import moriyashiine.inferno.common.block.CharredLogBlock;
+import moriyashiine.inferno.common.block.CopperFireBlock;
 import moriyashiine.inferno.common.block.ScorchedEarthBlock;
 import moriyashiine.inferno.common.block.ShiningOakSaplingBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
@@ -15,6 +16,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.Direction;
 
@@ -155,8 +157,18 @@ public class ModBlocks {
 	public static final Block POTTED_FIREWEED = registerBlock("potted_fireweed", settings -> new FlowerPotBlock(FIREWEED, settings), Blocks.createFlowerPotSettings());
 	public static final Block PRAIRIE_FIRE = registerBlock("prairie_fire", settings -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 3, settings), copy(Blocks.DANDELION));
 	public static final Block POTTED_PRAIRIE_FIRE = registerBlock("potted_prairie_fire", settings -> new FlowerPotBlock(PRAIRIE_FIRE, settings), Blocks.createFlowerPotSettings());
+	// copper fire
+	public static final Block COPPER_FIRE = registerBlock("copper_fire", CopperFireBlock::new, AbstractBlock.Settings.create()
+			.mapColor(MapColor.EMERALD_GREEN)
+			.replaceable()
+			.noCollision()
+			.breakInstantly()
+			.luminance(state -> 15)
+			.sounds(BlockSoundGroup.WOOL)
+			.pistonBehavior(PistonBehavior.DESTROY));
 
 	public static void init() {
+		registerBlockType("copper_fire", CopperFireBlock.CODEC);
 		registerBlockType("falling_pillar", CharredLogBlock.CODEC);
 		StrippableBlockRegistry.register(SHINING_OAK_LOG, STRIPPED_SHINING_OAK_LOG);
 		StrippableBlockRegistry.register(SHINING_OAK_WOOD, STRIPPED_SHINING_OAK_WOOD);
