@@ -1,16 +1,7 @@
 {
   "values": [
-	{
-	  "id": "#minecraft:copper_ores",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/copper",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/raw_copper",
-	  "required": false
-	}
+	"#c:storage_blocks/copper",
+	"#c:storage_blocks/raw_copper",
+	"#minecraft:copper_ores"
   ]
 }

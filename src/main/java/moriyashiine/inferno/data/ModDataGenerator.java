@@ -15,10 +15,10 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(ModBlockLootTableProvider::new);
-		pack.addProvider(ModBlockTagProvider::new);
+		ModBlockTagProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModDynamicRegistryProvider::new);
 		pack.addProvider(ModEntityTypeTagProvider::new);
-		pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider((fabricDataOutput, completableFuture) -> new ModItemTagProvider(fabricDataOutput, completableFuture, blockTagProvider));
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 	}

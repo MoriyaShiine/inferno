@@ -1,16 +1,7 @@
 {
   "values": [
-	{
-	  "id": "#c:ores/iron",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/iron",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/raw_iron",
-	  "required": false
-	}
+	"#c:storage_blocks/iron",
+	"#c:storage_blocks/raw_iron",
+	"#minecraft:iron_ores"
   ]
 }

@@ -22,18 +22,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 		// INFERNO
 		valueLookupBuilder(ModBlockTags.GENERIC_IRON_BLOCKS)
-				.addOptionalTag(ConventionalBlockTags.IRON_ORES)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_IRON)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_IRON);
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_IRON)
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_IRON)
+				.forceAddTag(BlockTags.IRON_ORES);
 		valueLookupBuilder(ModBlockTags.GENERIC_GOLD_BLOCKS)
-				.addOptionalTag(ConventionalBlockTags.GOLD_ORES)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_GOLD)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD);
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_GOLD)
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD)
+				.forceAddTag(BlockTags.GOLD_ORES);
 
 		valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS) // todo use 1.21.9 copper blocks tag
-				.addOptionalTag(BlockTags.COPPER_ORES)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
-				.addOptionalTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER);
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
+				.forceAddTag(BlockTags.COPPER_ORES);
 		valueLookupBuilder(ModBlockTags.SHINING_OAK_LOGS)
 				.add(ModBlocks.SHINING_OAK_LOG)
 				.add(ModBlocks.SHINING_OAK_WOOD)

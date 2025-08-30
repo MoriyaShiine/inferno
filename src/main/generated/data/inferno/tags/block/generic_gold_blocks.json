@@ -1,16 +1,7 @@
 {
   "values": [
-	{
-	  "id": "#c:ores/gold",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/gold",
-	  "required": false
-	},
-	{
-	  "id": "#c:storage_blocks/raw_gold",
-	  "required": false
-	}
+	"#c:storage_blocks/gold",
+	"#c:storage_blocks/raw_gold",
+	"#minecraft:gold_ores"
   ]
 }
