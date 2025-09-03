@@ -9,6 +9,9 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.item.Items;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryWrapper;
 
@@ -55,6 +58,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 		addDrop(ModBlocks.PRAIRIE_FIRE);
 		addPottedPlantDrops(ModBlocks.POTTED_PRAIRIE_FIRE);
 		// copper fire
+		addDrop(ModBlocks.COPPER_CAMPFIRE, block -> dropsWithSilkTouch(block, addSurvivesExplosionCondition(block, ItemEntry.builder(Items.COPPER_INGOT).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1))))));
 		addDrop(ModBlocks.COPPER_FIRE, dropsNothing());
 	}
 }

@@ -8,6 +8,8 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
 
@@ -45,6 +47,8 @@ public class ModItems {
 	public static final Item GOLDEN_POPPY = registerBlockItem("golden_poppy", ModBlocks.GOLDEN_POPPY);
 	public static final Item FIREWEED = registerBlockItem("fireweed", ModBlocks.FIREWEED);
 	public static final Item PRAIRIE_FIRE = registerBlockItem("prairie_fire", ModBlocks.PRAIRIE_FIRE);
+	// copper fire
+	public static final Item COPPER_CAMPFIRE = registerBlockItem("copper_campfire", ModBlocks.COPPER_CAMPFIRE, new Item.Settings().component(DataComponentTypes.CONTAINER, ContainerComponent.DEFAULT));
 
 	private static Item.Settings fireproof() {
 		return new Item.Settings().fireproof();
@@ -82,6 +86,8 @@ public class ModItems {
 			entries.add(GOLDEN_POPPY);
 			entries.add(FIREWEED);
 			entries.add(PRAIRIE_FIRE);
+			// copper fire
+			entries.add(COPPER_CAMPFIRE);
 		}).build());
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addAfter(Items.PALE_OAK_BUTTON,
@@ -97,7 +103,10 @@ public class ModItems {
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.PALE_OAK_CHEST_BOAT,
 				SHINING_OAK_RAFT, SHINING_OAK_CHEST_RAFT));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addAfter(Items.PALE_OAK_HANGING_SIGN, SHINING_OAK_SIGN, SHINING_OAK_HANGING_SIGN));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+			entries.addAfter(Items.PALE_OAK_HANGING_SIGN, SHINING_OAK_SIGN, SHINING_OAK_HANGING_SIGN);
+			entries.addAfter(Items.SOUL_CAMPFIRE, COPPER_CAMPFIRE);
+		});
 
 		FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(CHARRED_LOG, context.baseSmeltTime() * 40));
 

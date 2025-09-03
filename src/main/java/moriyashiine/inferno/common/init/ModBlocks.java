@@ -158,6 +158,7 @@ public class ModBlocks {
 	public static final Block PRAIRIE_FIRE = registerBlock("prairie_fire", settings -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 3, settings), copy(Blocks.DANDELION));
 	public static final Block POTTED_PRAIRIE_FIRE = registerBlock("potted_prairie_fire", settings -> new FlowerPotBlock(PRAIRIE_FIRE, settings), Blocks.createFlowerPotSettings());
 	// copper fire
+	public static final Block COPPER_CAMPFIRE = registerBlock("copper_campfire", settings -> new CampfireBlock(false, 1, settings), copy(Blocks.CAMPFIRE));
 	public static final Block COPPER_FIRE = registerBlock("copper_fire", CopperFireBlock::new, AbstractBlock.Settings.create()
 			.mapColor(MapColor.EMERALD_GREEN)
 			.replaceable()
@@ -176,6 +177,7 @@ public class ModBlocks {
 		BlockEntityType.SIGN.addSupportedBlock(SHINING_OAK_WALL_SIGN);
 		BlockEntityType.HANGING_SIGN.addSupportedBlock(SHINING_OAK_HANGING_SIGN);
 		BlockEntityType.HANGING_SIGN.addSupportedBlock(SHINING_OAK_WALL_HANGING_SIGN);
+		BlockEntityType.CAMPFIRE.addSupportedBlock(COPPER_CAMPFIRE);
 		FireBlock fire = (FireBlock) Blocks.FIRE;
 		// vanilla
 		fire.registerFlammableBlock(Blocks.GRASS_BLOCK, 60, 100);

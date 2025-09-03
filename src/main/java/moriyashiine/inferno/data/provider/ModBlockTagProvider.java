@@ -21,6 +21,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 		// INFERNO
+		// todo make non-oxidized copper blocks burn forever
+		valueLookupBuilder(ModBlockTags.GENERIC_COPPER_BLOCKS)
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
+				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER);
 		valueLookupBuilder(ModBlockTags.GENERIC_IRON_BLOCKS)
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_IRON)
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_IRON)
@@ -30,10 +34,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD)
 				.forceAddTag(BlockTags.GOLD_ORES);
 
-		valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS) // todo use 1.21.9 copper blocks tag
-				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
-				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
-				.forceAddTag(BlockTags.COPPER_ORES);
+		valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS)
+				.addTag(ModBlockTags.GENERIC_COPPER_BLOCKS); // todo use vanilla copper blocks tag in 1.21.9
 		valueLookupBuilder(ModBlockTags.SHINING_OAK_LOGS)
 				.add(ModBlocks.SHINING_OAK_LOG)
 				.add(ModBlocks.SHINING_OAK_WOOD)
@@ -120,7 +122,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.POTTED_FIREWEED)
 				.add(ModBlocks.POTTED_PRAIRIE_FIRE);
 		// copper fire
+		valueLookupBuilder(BlockTags.AXE_MINEABLE)
+				.add(ModBlocks.COPPER_CAMPFIRE);
+		valueLookupBuilder(BlockTags.CAMPFIRES)
+				.add(ModBlocks.COPPER_CAMPFIRE);
 		valueLookupBuilder(BlockTags.FIRE)
 				.add(ModBlocks.COPPER_FIRE);
+		valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
+				.addTag(ModBlockTags.GENERIC_COPPER_BLOCKS);
 	}
 }

@@ -37,6 +37,7 @@ public class ModModelProvider extends FabricModelProvider {
 		generator.registerFlowerPotPlantAndItem(ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED, BlockStateModelGenerator.CrossType.NOT_TINTED);
 		generator.registerFlowerPotPlantAndItem(ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE, BlockStateModelGenerator.CrossType.NOT_TINTED);
 		// copper fire
+		generator.registerCampfire(ModBlocks.COPPER_CAMPFIRE);
 		registerCopperFire(generator);
 	}
 
