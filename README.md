@@ -34,7 +34,7 @@
 ### On Soul Fire
 - Entities caught on fire from Soul Fire will be set on soul fire, taking double damage.
 
-![On Soul Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/onsoulfire.png?raw=true)
+![On Soul Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/on_soul_fire.png?raw=true)
 
 ### Copper Fire
 - Blocks made out of Copper will burn with a green fire. Also adds Copper Campfires!
@@ -44,7 +44,7 @@
 ### Lower Hud Fire
 - Fire is lowered in the game HUD automatically, and works with resource packs that change the fire texture.
 
-![Lower Hud Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/lowerhudfire.gif?raw=true)
+![Lower Hud Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/lower_hud_fire.gif?raw=true)
 
 ### Entity Fire Spread
 - Entities will spread fire while ignited. Projectiles have a significantly lower chance to do this, and entities that were set on fire from the sun will not spread fire at all.
