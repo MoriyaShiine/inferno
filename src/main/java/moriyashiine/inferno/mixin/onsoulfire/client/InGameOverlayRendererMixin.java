@@ -13,6 +13,7 @@ import net.minecraft.client.gui.hud.InGameOverlayRenderer;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,7 +27,8 @@ public class InGameOverlayRendererMixin {
 
 	@WrapOperation(method = "renderFireOverlay", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/SpriteIdentifier;getSprite()Lnet/minecraft/client/texture/Sprite;"))
 	private static Sprite inferno$onSoulFire(SpriteIdentifier instance, Operation<Sprite> original) {
-		if (ModEntityComponents.ON_SOUL_FIRE.get(MinecraftClient.getInstance().getCameraEntity()).isOnSoulFire()) {
+		PlayerEntity player = MinecraftClient.getInstance().player;
+		if (player != null && ModEntityComponents.ON_SOUL_FIRE.get(player).isOnSoulFire()) {
 			return SOUL_FIRE_1.getSprite();
 		}
 		return original.call(instance);

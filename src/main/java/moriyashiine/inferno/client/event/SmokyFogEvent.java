@@ -33,7 +33,7 @@ public class SmokyFogEvent implements ClientTickEvents.EndWorldTick {
 		if (!client.isPaused()) {
 			ticks++;
 		}
-		if (ModConfig.smokyFog) {
+		if (ModConfig.smokyFog && client.getCameraEntity() != null) {
 			if (ticks % UPDATE_TICKS == 0) {
 				int[] counted = {0};
 				if (world.getRegistryKey() != World.NETHER) {
