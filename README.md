@@ -39,7 +39,7 @@
 ### Copper Fire
 - Blocks made out of Copper will burn with a green fire. Also adds Copper Campfires!
 
-![Copper Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/copper_fire.png?raw=true)
+![Copper Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/copper_fire.gif?raw=true)
 
 ### Lower Hud Fire
 - Fire is lowered in the game HUD automatically, and works with resource packs that change the fire texture.
