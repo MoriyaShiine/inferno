@@ -40,7 +40,7 @@ public class Inferno implements ModInitializer {
 
 	private void initEvents() {
 		TickEntityEvent.EVENT.register(new FireSpreadEvent());
-		ModifyDamageTakenEvent.Base.MULTIPLY_BASE.register(new OnSoulFireEvent());
+		ModifyDamageTakenEvent.MULTIPLY_BASE.register(new OnSoulFireEvent());
 		ServerLivingEntityEvents.AFTER_DAMAGE.register(new TorchIgnitionEvent());
 	}
 }

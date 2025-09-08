@@ -9,7 +9,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 
 public class ModBlockTags {
-	public static final TagKey<Block> GENERIC_COPPER_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Inferno.id("generic_copper_blocks"));
 	public static final TagKey<Block> GENERIC_IRON_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Inferno.id("generic_iron_blocks"));
 	public static final TagKey<Block> GENERIC_GOLD_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Inferno.id("generic_gold_blocks"));
 

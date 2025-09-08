@@ -12,8 +12,8 @@ import net.minecraft.server.world.ServerWorld;
 
 public class OnSoulFireEvent implements ModifyDamageTakenEvent {
 	@Override
-	public float modify(float amount, ServerWorld world, DamageSource source, LivingEntity victim) {
-		if (ModConfig.onSoulFire && source == world.getDamageSources().onFire() && ModEntityComponents.ON_SOUL_FIRE.get(victim).isOnSoulFire()) {
+	public float modify(Phase phase, float amount, ServerWorld world, DamageSource source, LivingEntity victim) {
+		if (phase == Phase.BASE && ModConfig.onSoulFire && source == world.getDamageSources().onFire() && ModEntityComponents.ON_SOUL_FIRE.get(victim).isOnSoulFire()) {
 			return 2;
 		}
 		return 1;

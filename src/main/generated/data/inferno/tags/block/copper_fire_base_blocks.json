@@ -1,5 +1,14 @@
 {
   "values": [
-	"#inferno:generic_copper_blocks"
+	"#c:storage_blocks/copper",
+	"#c:storage_blocks/raw_copper",
+	"#minecraft:copper_ores",
+	"minecraft:exposed_copper",
+	"minecraft:weathered_copper",
+	"minecraft:oxidized_copper",
+	"minecraft:waxed_copper_block",
+	"minecraft:waxed_exposed_copper",
+	"minecraft:waxed_weathered_copper",
+	"minecraft:waxed_oxidized_copper"
   ]
 }
