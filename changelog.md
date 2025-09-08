@@ -1,4 +1,12 @@
 ------------------------------------------------------
+Version 1.21.8-r1
+------------------------------------------------------
+- update to 1.21.8
+- add copper fire
+- add copper campfires
+- fix grass and podzol still being flammable when scorched earth is disabled
+
+------------------------------------------------------
 Version 1.21.6-r1
 ------------------------------------------------------
 - update to 1.21.6
