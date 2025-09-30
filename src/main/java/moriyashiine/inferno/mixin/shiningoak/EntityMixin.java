@@ -20,16 +20,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
 	@Shadow
+	public abstract BlockPos getBlockPos();
+
+	@Shadow
 	public abstract @Nullable Entity getVehicle();
 
 	@Shadow
-	public abstract World getWorld();
+	public abstract World getEntityWorld();
 
 	@Shadow
 	public abstract float getHeight();
-
-	@Shadow
-	public abstract BlockPos getBlockPos();
 
 	@ModifyReturnValue(method = "isInLava", at = @At("RETURN"))
 	private boolean inferno$shiningOak(boolean original) {
@@ -47,7 +47,7 @@ public abstract class EntityMixin {
 		if (vehicle != null) {
 			if (vehicle.getType() == ModEntityTypes.SHINING_OAK_RAFT || vehicle.getType() == ModEntityTypes.SHINING_OAK_CHEST_RAFT) {
 				for (int i = 1; i < MathHelper.ceil(getHeight()); i++) {
-					if (getWorld().getFluidState(getBlockPos().up(i)).isIn(FluidTags.LAVA)) {
+					if (getEntityWorld().getFluidState(getBlockPos().up(i)).isIn(FluidTags.LAVA)) {
 						return false;
 					}
 				}

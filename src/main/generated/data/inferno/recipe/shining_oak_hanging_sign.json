@@ -4,7 +4,7 @@
   "group": "hanging_sign",
   "key": {
 	"#": "inferno:stripped_shining_oak_log",
-	"X": "minecraft:chain"
+	"X": "minecraft:iron_chain"
   },
   "pattern": [
 	"X X",

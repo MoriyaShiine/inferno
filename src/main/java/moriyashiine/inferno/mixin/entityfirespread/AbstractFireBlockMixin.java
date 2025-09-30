@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class AbstractFireBlockMixin {
 	@Inject(method = "igniteEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setFireTicks(I)V"))
 	private static void inferno$entityFireSpread(Entity entity, CallbackInfo ci) {
-		if (!entity.getWorld().isClient) {
+		if (!entity.getEntityWorld().isClient()) {
 			ModEntityComponents.ENTITY_FIRE_SPREAD.get(entity).setAllowFireSpread(true);
 		}
 	}

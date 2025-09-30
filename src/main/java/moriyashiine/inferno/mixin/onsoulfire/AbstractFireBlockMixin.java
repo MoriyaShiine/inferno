@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class AbstractFireBlockMixin {
 	@Inject(method = "onEntityCollision", at = @At("HEAD"))
 	private void inferno$onSoulFire(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, CallbackInfo ci) {
-		if (ModConfig.onSoulFire && !world.isClient && !entity.isFireImmune()) {
+		if (ModConfig.onSoulFire && !world.isClient() && !entity.isFireImmune()) {
 			boolean onSoulFire = state.getBlock() instanceof SoulFireBlock;
 			OnSoulFireComponent onSoulFireComponent = ModEntityComponents.ON_SOUL_FIRE.get(entity);
 			if (onSoulFireComponent.isOnSoulFire() != onSoulFire) {

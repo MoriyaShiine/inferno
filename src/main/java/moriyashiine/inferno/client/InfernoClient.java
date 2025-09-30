@@ -13,9 +13,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.particle.LeavesParticle;
 import net.minecraft.client.render.BlockRenderLayer;
+import net.minecraft.client.render.entity.EntityRendererFactories;
 import net.minecraft.client.render.entity.RaftEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.RaftEntityModel;
@@ -47,11 +47,11 @@ public class InfernoClient implements ClientModInitializer {
 	private void initEntityRenderers() {
 		EntityModelLayer normal = new EntityModelLayer(Inferno.id("boat/shining_oak"), "main");
 		EntityModelLayerRegistry.registerModelLayer(normal, RaftEntityModel::getTexturedModelData);
-		EntityRendererRegistry.register(ModEntityTypes.SHINING_OAK_RAFT, context -> new RaftEntityRenderer(context, normal));
+		EntityRendererFactories.register(ModEntityTypes.SHINING_OAK_RAFT, context -> new RaftEntityRenderer(context, normal));
 
 		EntityModelLayer chest = new EntityModelLayer(Inferno.id("chest_boat/shining_oak"), "main");
 		EntityModelLayerRegistry.registerModelLayer(chest, RaftEntityModel::getChestTexturedModelData);
-		EntityRendererRegistry.register(ModEntityTypes.SHINING_OAK_CHEST_RAFT, context -> new RaftEntityRenderer(context, chest));
+		EntityRendererFactories.register(ModEntityTypes.SHINING_OAK_CHEST_RAFT, context -> new RaftEntityRenderer(context, chest));
 	}
 
 	private void initParticleRenderers() {

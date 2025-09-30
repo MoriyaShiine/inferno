@@ -91,7 +91,7 @@ public class ScorchedEarthBlock extends SpreadableBlock implements Fertilizable 
 
 	@Override
 	public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-		if (!world.isClient && world.getRandom().nextInt(4) == 0 && entity.getMovement().length() > 0.08) {
+		if (!world.isClient() && world.getRandom().nextInt(4) == 0 && entity.getMovement().length() > 0.08) {
 			((ServerWorld) world).spawnParticles(ParticleTypes.SMOKE, entity.getX(), entity.getY(), entity.getZ(), 1, entity.getWidth() / 2, 0, entity.getWidth() / 2, 0);
 		}
 	}

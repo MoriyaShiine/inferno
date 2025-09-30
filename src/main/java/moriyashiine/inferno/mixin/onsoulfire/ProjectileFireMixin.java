@@ -25,7 +25,7 @@ public abstract class ProjectileFireMixin extends Entity {
 
 	@Inject(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setOnFireFor(F)V"))
 	private void inferno$onSoulFire(EntityHitResult entityHitResult, CallbackInfo ci) {
-		if (ModConfig.onSoulFire && !getWorld().isClient) {
+		if (ModConfig.onSoulFire && !getEntityWorld().isClient()) {
 			boolean onSoulFire = ModEntityComponents.ON_SOUL_FIRE.get(this).isOnSoulFire();
 			OnSoulFireComponent onSoulFireComponent = ModEntityComponents.ON_SOUL_FIRE.get(entityHitResult.getEntity());
 			if (onSoulFireComponent.isOnSoulFire() != onSoulFire) {

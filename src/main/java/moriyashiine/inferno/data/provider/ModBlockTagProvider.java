@@ -8,9 +8,12 @@ import moriyashiine.inferno.common.tag.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
+import net.minecraft.data.tag.ProvidedTagBuilder;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -31,17 +34,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD)
 				.forceAddTag(BlockTags.GOLD_ORES);
 
-		valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS) // todo use vanilla copper blocks tag in 1.21.9
-				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_COPPER)
-				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
+		ProvidedTagBuilder<Block, Block> copperFireBaseBlocks = valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS);
+		copperFireBaseBlocks.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
+				.forceAddTag(BlockTags.COPPER)
 				.forceAddTag(BlockTags.COPPER_ORES)
-				.add(Blocks.EXPOSED_COPPER)
-				.add(Blocks.WEATHERED_COPPER)
-				.add(Blocks.OXIDIZED_COPPER)
-				.add(Blocks.WAXED_COPPER_BLOCK)
-				.add(Blocks.WAXED_EXPOSED_COPPER)
-				.add(Blocks.WAXED_WEATHERED_COPPER)
-				.add(Blocks.WAXED_OXIDIZED_COPPER);
+				.forceAddTag(BlockTags.COPPER_CHESTS)
+				.forceAddTag(BlockTags.COPPER_GOLEM_STATUES);
+		Registries.BLOCK.forEach(block -> {
+			Identifier id = Registries.BLOCK.getId(block);
+			if (id.getNamespace().equals("minecraft") && id.getPath().contains("copper")) {
+				copperFireBaseBlocks.add(block);
+			}
+		});
 		valueLookupBuilder(ModBlockTags.SHINING_OAK_LOGS)
 				.add(ModBlocks.SHINING_OAK_LOG)
 				.add(ModBlocks.SHINING_OAK_WOOD)

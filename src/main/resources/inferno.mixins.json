@@ -22,7 +22,10 @@
   ],
   "client": [
 	"lowerhudfire.client.InGameOverlayRendererMixin",
-	"onsoulfire.client.EntityRenderDispatcherMixin",
+	"onsoulfire.client.BatchingRenderCommandQueueMixin",
+	"onsoulfire.client.EntityRendererMixin",
+	"onsoulfire.client.FireCommandMixin",
+	"onsoulfire.client.FireCommandRendererMixin",
 	"onsoulfire.client.InGameOverlayRendererMixin",
 	"smokyfog.client.AtmosphericFogModifierMixin",
 	"smokyfog.client.ClientWorldMixin",

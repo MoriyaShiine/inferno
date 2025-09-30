@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
 	@Shadow
-	public abstract World getWorld();
+	public abstract World getEntityWorld();
 
 	@Inject(method = "onStruckByLightning", at = @At("TAIL"))
 	private void inferno$entityFireSpread(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
@@ -26,7 +26,7 @@ public abstract class EntityMixin {
 
 	@Inject(method = "igniteByLava", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setOnFireFor(F)V"))
 	private void inferno$entityFireSpread(CallbackInfo ci) {
-		if (!getWorld().isClient) {
+		if (!getEntityWorld().isClient()) {
 			ModEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
 		}
 	}

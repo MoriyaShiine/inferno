@@ -36,7 +36,7 @@ public abstract class AbstractBoatEntityMixin extends VehicleEntity {
 
 	@ModifyExpressionValue(method = "fall", at = @At(value = "INVOKE", target = "Lnet/minecraft/fluid/FluidState;isIn(Lnet/minecraft/registry/tag/TagKey;)Z"))
 	private boolean inferno$shiningOak(boolean original) {
-		return original || pretendWater(getWorld().getFluidState(getBlockPos().down()));
+		return original || pretendWater(getEntityWorld().getFluidState(getBlockPos().down()));
 	}
 
 	@ModifyReturnValue(method = "getPaddleSound", at = @At("RETURN"))
