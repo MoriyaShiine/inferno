@@ -1,4 +1,11 @@
 ------------------------------------------------------
+Version 1.21.10-r2
+------------------------------------------------------
+- merge https://github.com/MoriyaShiine/inferno/pull/6
+  - adds Ukrainian translation. thanks StarmanMine142!
+- fix https://github.com/MoriyaShiine/inferno/issues/3
+
+------------------------------------------------------
 Version 1.21.10-r1
 ------------------------------------------------------
 - update to 1.21.10
