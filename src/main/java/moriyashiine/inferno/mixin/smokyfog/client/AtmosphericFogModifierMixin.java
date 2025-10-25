@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class AtmosphericFogModifierMixin {
 	@Inject(method = "applyStartEndModifier", at = @At("TAIL"))
 	private void inferno$smokyFog(FogData data, Entity cameraEntity, BlockPos cameraPos, ClientWorld world, float viewDistance, RenderTickCounter tickCounter, CallbackInfo ci) {
-		float progress = SmokyFogEvent.getProgress();
+		float progress = SmokyFogEvent.getProgress(tickCounter.getTickProgress(false));
 		if (progress > 0) {
 			data.environmentalStart = MathHelper.lerp(progress, data.environmentalStart, 0);
 			data.environmentalEnd = MathHelper.lerp(progress, data.environmentalEnd, 32);

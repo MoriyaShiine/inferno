@@ -18,9 +18,23 @@ public class SmokyFogEvent implements ClientTickEvents.EndWorldTick {
 
 	private static final int UPDATE_TICKS = 10;
 	private static int ticks = 0, targetFireBlocks = 0;
+	private static float lastProgress = 0, progress = 0;
+
+	public static boolean hasMaxFireBlocks() {
+		return fireBlocks == MAX_FIRE_BLOCKS;
+	}
+
+	public static float getProgress(float tickProgress) {
+		return MathHelper.lerp(tickProgress, lastProgress, progress);
+	}
+
+	private static float calculateProgress() {
+		return fireBlocks / (float) MAX_FIRE_BLOCKS;
+	}
 
 	@Override
 	public void onEndTick(ClientWorld world) {
+		lastProgress = progress;
 		if (ticks % (fireBlocks < targetFireBlocks ? 1 : 2) == 0) {
 			if (fireBlocks > targetFireBlocks) {
 				fireBlocks--;
@@ -51,13 +65,6 @@ public class SmokyFogEvent implements ClientTickEvents.EndWorldTick {
 		} else {
 			targetFireBlocks = 0;
 		}
-	}
-
-	public static boolean hasMaxFireBlocks() {
-		return fireBlocks == MAX_FIRE_BLOCKS;
-	}
-
-	public static float getProgress() {
-		return fireBlocks / (float) MAX_FIRE_BLOCKS;
+		progress = calculateProgress();
 	}
 }

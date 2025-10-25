@@ -5,6 +5,7 @@ package moriyashiine.inferno.mixin.smokyfog.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import moriyashiine.inferno.client.event.SmokyFogEvent;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.fog.StandardFogModifier;
 import net.minecraft.util.math.ColorHelper;
 import org.joml.Vector3f;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class StandardFogModifierMixin {
 	@ModifyReturnValue(method = "getFogColor", at = @At("RETURN"))
 	private int inferno$smokyFog(int original) {
-		float progress = SmokyFogEvent.getProgress();
+		float progress = SmokyFogEvent.getProgress(MinecraftClient.getInstance().getRenderTickCounter().getTickProgress(false));
 		if (progress > 0) {
 			Vector3f color = ColorHelper.toVector(original);
 			float green = color.y();
