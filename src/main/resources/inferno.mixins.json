@@ -28,8 +28,7 @@
 	"onsoulfire.client.FireCommandRendererMixin",
 	"onsoulfire.client.InGameOverlayRendererMixin",
 	"smokyfog.client.AtmosphericFogModifierMixin",
-	"smokyfog.client.ClientWorldMixin",
-	"smokyfog.client.StandardFogModifierMixin"
+	"smokyfog.client.ClientWorldMixin"
   ],
   "injectors": {
 	"defaultRequire": 1

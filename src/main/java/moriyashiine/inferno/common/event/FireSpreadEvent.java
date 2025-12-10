@@ -13,7 +13,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameRules;
+import net.minecraft.world.rule.GameRules;
 
 public class FireSpreadEvent implements TickEntityEvent {
 	private static final FireBlock FIRE = (FireBlock) Blocks.FIRE;
@@ -26,7 +26,7 @@ public class FireSpreadEvent implements TickEntityEvent {
 		if (entity instanceof ProjectileEntity) {
 			chance /= 16;
 		}
-		if ((entity.age + entity.getId()) % 20 == 0 && world.getRandom().nextFloat() < chance && world.getGameRules().getBoolean(GameRules.DO_FIRE_TICK)) {
+		if ((entity.age + entity.getId()) % 20 == 0 && world.getRandom().nextFloat() < chance && world.getGameRules().getValue(GameRules.FIRE_SPREAD_RADIUS_AROUND_PLAYER) > 0) {
 			if (shouldSpreadFire(entity)) {
 				POS.set(
 						entity.getBlockX() + entity.getRandom().nextBetween(-RADIUS, RADIUS),
