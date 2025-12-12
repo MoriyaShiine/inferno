@@ -4,7 +4,7 @@
   "group": "chest_boat",
   "ingredients": [
 	"minecraft:chest",
-	"inferno:shining_oak_planks"
+	"inferno:shining_oak_raft"
   ],
   "result": {
 	"count": 1,

@@ -39,7 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				generateFamily(ModBlockFamilies.SHINING_OAK, FeatureFlags.DEFAULT_ENABLED_FEATURES);
 				offerHangingSignRecipe(ModItems.SHINING_OAK_HANGING_SIGN, ModItems.STRIPPED_SHINING_OAK_LOG);
 				offerBoatRecipe(ModItems.SHINING_OAK_RAFT, ModItems.SHINING_OAK_PLANKS);
-				offerChestBoatRecipe(ModItems.SHINING_OAK_CHEST_RAFT, ModItems.SHINING_OAK_PLANKS);
+				offerChestBoatRecipe(ModItems.SHINING_OAK_CHEST_RAFT, ModItems.SHINING_OAK_RAFT);
 				// remains
 				createShapeless(RecipeCategory.MISC, Items.CHARCOAL, 4).input(ModItems.CHARRED_LOG).criterion("has_log", conditionsFromItem(ModItems.CHARRED_LOG)).offerTo(exporter);
 				// flowers
