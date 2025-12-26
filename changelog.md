@@ -1,4 +1,10 @@
 ------------------------------------------------------
+Version 1.21.11-r3
+------------------------------------------------------
+- merge https://github.com/MoriyaShiine/inferno/pull/8
+- fix copper fire not extinguishing. raw copper blocks still burn forever as intended
+
+------------------------------------------------------
 Version 1.21.11-r2
 ------------------------------------------------------
 - fix shining oak chest raft recipe
