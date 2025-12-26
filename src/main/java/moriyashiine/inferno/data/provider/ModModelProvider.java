@@ -10,7 +10,11 @@ import moriyashiine.strawberrylib.api.module.SLibDataUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.MultipartModelConditionBuilder;
 import net.minecraft.client.render.model.json.WeightedVariant;
+import net.minecraft.state.property.Properties;
+
+import static net.minecraft.client.data.BlockStateModelGenerator.*;
 
 public class ModModelProvider extends FabricModelProvider {
 	public ModModelProvider(FabricDataOutput output) {
@@ -48,16 +52,24 @@ public class ModModelProvider extends FabricModelProvider {
 	}
 
 	private void registerCopperFire(BlockStateModelGenerator generator) {
-		WeightedVariant weightedVariant = generator.getFireFloorModels(ModBlocks.COPPER_FIRE);
-		WeightedVariant weightedVariant2 = generator.getFireSideModels(ModBlocks.COPPER_FIRE);
+		MultipartModelConditionBuilder builder = createMultipartConditionBuilder()
+				.put(Properties.NORTH, false)
+				.put(Properties.EAST, false)
+				.put(Properties.SOUTH, false)
+				.put(Properties.WEST, false)
+				.put(Properties.UP, false);
+		WeightedVariant variant1 = generator.getFireFloorModels(ModBlocks.COPPER_FIRE);
+		WeightedVariant variant2 = generator.getFireSideModels(ModBlocks.COPPER_FIRE);
+		WeightedVariant variant3 = generator.getFireUpModels(ModBlocks.COPPER_FIRE);
 		generator.blockStateCollector
 				.accept(
 						MultipartBlockModelDefinitionCreator.create(ModBlocks.COPPER_FIRE)
-								.with(weightedVariant)
-								.with(weightedVariant2)
-								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_90))
-								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_180))
-								.with(weightedVariant2.apply(BlockStateModelGenerator.ROTATE_Y_270))
+								.with(builder, variant1)
+								.with(or(createMultipartConditionBuilder().put(Properties.NORTH, true), builder), variant2)
+								.with(or(createMultipartConditionBuilder().put(Properties.EAST, true), builder), variant2.apply(ROTATE_Y_90))
+								.with(or(createMultipartConditionBuilder().put(Properties.SOUTH, true), builder), variant2.apply(ROTATE_Y_180))
+								.with(or(createMultipartConditionBuilder().put(Properties.WEST, true), builder), variant2.apply(ROTATE_Y_270))
+								.with(createMultipartConditionBuilder().put(Properties.UP, true), variant3)
 				);
 	}
 }

@@ -5,6 +5,7 @@
   "mixins": [
 	"charredlogs.FireBlockMixin",
 	"copperfire.AbstractFireBlockMixin",
+	"copperfire.FireBlockMixin",
 	"entityfirespread.AbstractFireBlockMixin",
 	"entityfirespread.EntityMixin",
 	"entityfirespread.IgniteEnchantmentEffectMixin",

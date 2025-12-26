@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fire_up",
+  "textures": {
+	"fire": "inferno:block/copper_fire_1"
+  }
+}
