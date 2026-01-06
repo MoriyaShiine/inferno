@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+	"all": "inferno:block/shining_oak_shelf",
+	"particle": "inferno:block/stripped_shining_oak_log"
+  }
+}

@@ -34,6 +34,7 @@ public class ModItems {
 	public static final Item SHINING_OAK_TRAPDOOR = registerBlockItem("shining_oak_trapdoor", ModBlocks.SHINING_OAK_TRAPDOOR, fireproof());
 	public static final Item SHINING_OAK_PRESSURE_PLATE = registerBlockItem("shining_oak_pressure_plate", ModBlocks.SHINING_OAK_PRESSURE_PLATE, fireproof());
 	public static final Item SHINING_OAK_BUTTON = registerBlockItem("shining_oak_button", ModBlocks.SHINING_OAK_BUTTON, fireproof());
+	public static final Item SHINING_OAK_SHELF = registerBlockItem("shining_oak_shelf", ModBlocks.SHINING_OAK_SHELF, fireproof().component(DataComponentTypes.CONTAINER, ContainerComponent.DEFAULT));
 	public static final Item SHINING_OAK_SIGN = registerItem("shining_oak_sign", settings -> new SignItem(ModBlocks.SHINING_OAK_SIGN, ModBlocks.SHINING_OAK_WALL_SIGN, settings), fireproof().useBlockPrefixedTranslationKey().maxCount(16));
 	public static final Item SHINING_OAK_HANGING_SIGN = registerItem("shining_oak_hanging_sign", settings -> new HangingSignItem(ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN, settings), fireproof().useBlockPrefixedTranslationKey().maxCount(16));
 	public static final Item SHINING_OAK_RAFT = registerItem("shining_oak_raft", settings -> new BoatItem(ModEntityTypes.SHINING_OAK_RAFT, settings), fireproof().maxCount(1));
@@ -73,6 +74,7 @@ public class ModItems {
 			entries.add(SHINING_OAK_TRAPDOOR);
 			entries.add(SHINING_OAK_PRESSURE_PLATE);
 			entries.add(SHINING_OAK_BUTTON);
+			entries.add(SHINING_OAK_SHELF);
 			entries.add(SHINING_OAK_SIGN);
 			entries.add(SHINING_OAK_HANGING_SIGN);
 			entries.add(SHINING_OAK_RAFT);
@@ -104,6 +106,7 @@ public class ModItems {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.PALE_OAK_CHEST_BOAT,
 				SHINING_OAK_RAFT, SHINING_OAK_CHEST_RAFT));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+			entries.addAfter(Items.PALE_OAK_SHELF, SHINING_OAK_SHELF);
 			entries.addAfter(Items.PALE_OAK_HANGING_SIGN, SHINING_OAK_SIGN, SHINING_OAK_HANGING_SIGN);
 			entries.addAfter(Items.SOUL_CAMPFIRE, COPPER_CAMPFIRE);
 		});

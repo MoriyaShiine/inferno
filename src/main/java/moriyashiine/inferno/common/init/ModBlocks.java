@@ -111,6 +111,11 @@ public class ModBlocks {
 			.strength(0.5F)
 			.pistonBehavior(PistonBehavior.DESTROY));
 	public static final Block SHINING_OAK_BUTTON = registerBlock("shining_oak_button", settings -> new ButtonBlock(SHINING_OAK_BLOCK_SET_TYPE, 30, settings), Blocks.createButtonSettings());
+	public static final Block SHINING_OAK_SHELF = registerBlock("shining_oak_shelf", ShelfBlock::new, create()
+			.mapColor(SHINING_OAK_PLANKS.getDefaultMapColor())
+			.instrument(NoteBlockInstrument.BASS)
+			.sounds(BlockSoundGroup.SHELF)
+			.strength(2, 3));
 	public static final Block SHINING_OAK_SIGN = registerBlock("shining_oak_sign", settings -> new SignBlock(SHINING_OAK_WOOD_TYPE, settings), create()
 			.mapColor(SHINING_OAK_PLANKS.getDefaultMapColor())
 			.solid()
@@ -173,6 +178,7 @@ public class ModBlocks {
 		registerBlockType("falling_pillar", CharredLogBlock.CODEC);
 		StrippableBlockRegistry.register(SHINING_OAK_LOG, STRIPPED_SHINING_OAK_LOG);
 		StrippableBlockRegistry.register(SHINING_OAK_WOOD, STRIPPED_SHINING_OAK_WOOD);
+		BlockEntityType.SHELF.addSupportedBlock(SHINING_OAK_SHELF);
 		BlockEntityType.SIGN.addSupportedBlock(SHINING_OAK_SIGN);
 		BlockEntityType.SIGN.addSupportedBlock(SHINING_OAK_WALL_SIGN);
 		BlockEntityType.HANGING_SIGN.addSupportedBlock(SHINING_OAK_HANGING_SIGN);

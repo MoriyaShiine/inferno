@@ -5,7 +5,6 @@ package moriyashiine.inferno.data.provider;
 
 import moriyashiine.inferno.common.Inferno;
 import moriyashiine.inferno.common.init.ModBlockFamilies;
-import moriyashiine.inferno.common.init.ModBlocks;
 import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.inferno.common.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -37,6 +36,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				offerBarkBlockRecipe(ModItems.STRIPPED_SHINING_OAK_WOOD, ModItems.STRIPPED_SHINING_OAK_LOG);
 				offerPlanksRecipe(ModItems.SHINING_OAK_PLANKS, ModItemTags.SHINING_OAK_LOGS, 4);
 				generateFamily(ModBlockFamilies.SHINING_OAK, FeatureFlags.DEFAULT_ENABLED_FEATURES);
+				offerShelfRecipe(ModItems.SHINING_OAK_SHELF, ModItems.STRIPPED_SHINING_OAK_LOG);
 				offerHangingSignRecipe(ModItems.SHINING_OAK_HANGING_SIGN, ModItems.STRIPPED_SHINING_OAK_LOG);
 				offerBoatRecipe(ModItems.SHINING_OAK_RAFT, ModItems.SHINING_OAK_PLANKS);
 				offerChestBoatRecipe(ModItems.SHINING_OAK_CHEST_RAFT, ModItems.SHINING_OAK_RAFT);
@@ -53,7 +53,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				offerSuspiciousStewRecipe(ModItems.FIREWEED, SuspiciousStewIngredient.of(ModItems.FIREWEED));
 				offerSuspiciousStewRecipe(ModItems.PRAIRIE_FIRE, SuspiciousStewIngredient.of(ModItems.PRAIRIE_FIRE));
 				// copper fire
-				createShaped(RecipeCategory.DECORATIONS, ModBlocks.COPPER_CAMPFIRE).input('L', ItemTags.LOGS).input('S', Items.STICK).input('#', ConventionalItemTags.COPPER_INGOTS).pattern(" S ").pattern("S#S").pattern("LLL").criterion("has_copper_ingot", conditionsFromTag(ConventionalItemTags.COPPER_INGOTS)).offerTo(exporter);
+				createShaped(RecipeCategory.DECORATIONS, ModItems.COPPER_CAMPFIRE).input('L', ItemTags.LOGS).input('S', Items.STICK).input('#', ConventionalItemTags.COPPER_INGOTS).pattern(" S ").pattern("S#S").pattern("LLL").criterion("has_copper_ingot", conditionsFromTag(ConventionalItemTags.COPPER_INGOTS)).offerTo(exporter);
 			}
 		};
 	}

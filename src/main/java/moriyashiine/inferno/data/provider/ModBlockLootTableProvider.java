@@ -42,6 +42,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 		addDrop(ModBlocks.SHINING_OAK_TRAPDOOR);
 		addDrop(ModBlocks.SHINING_OAK_PRESSURE_PLATE);
 		addDrop(ModBlocks.SHINING_OAK_BUTTON);
+		addDrop(ModBlocks.SHINING_OAK_SHELF);
 		addDrop(ModBlocks.SHINING_OAK_SIGN);
 		addDrop(ModBlocks.SHINING_OAK_HANGING_SIGN);
 		// remains

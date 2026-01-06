@@ -30,6 +30,7 @@ public class ModModelProvider extends FabricModelProvider {
 		generator.registerSimpleCubeAll(ModBlocks.IRON_SHINING_OAK_LEAVES);
 		generator.registerSimpleCubeAll(ModBlocks.GOLDEN_SHINING_OAK_LEAVES);
 		generator.registerCubeAllModelTexturePool(ModBlockFamilies.SHINING_OAK.getBaseBlock()).family(ModBlockFamilies.SHINING_OAK);
+		generator.registerShelf(ModBlocks.SHINING_OAK_SHELF, ModBlocks.STRIPPED_SHINING_OAK_LOG);
 		generator.registerHangingSign(ModBlocks.STRIPPED_SHINING_OAK_LOG, ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN);
 		// remains
 		generator.registerAxisRotated(ModBlocks.CHARRED_LOG, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);

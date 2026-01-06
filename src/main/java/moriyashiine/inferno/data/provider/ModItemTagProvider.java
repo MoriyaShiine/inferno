@@ -64,6 +64,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		copy(BlockTags.WOODEN_TRAPDOORS, ItemTags.WOODEN_TRAPDOORS);
 		copy(BlockTags.WOODEN_PRESSURE_PLATES, ItemTags.WOODEN_PRESSURE_PLATES);
 		copy(BlockTags.WOODEN_BUTTONS, ItemTags.WOODEN_BUTTONS);
+		copy(BlockTags.WOODEN_SHELVES, ItemTags.WOODEN_SHELVES);
 		valueLookupBuilder(ItemTags.SIGNS)
 				.add(ModItems.SHINING_OAK_SIGN);
 		valueLookupBuilder(ItemTags.HANGING_SIGNS)

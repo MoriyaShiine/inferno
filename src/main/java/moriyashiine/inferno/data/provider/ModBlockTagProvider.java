@@ -93,6 +93,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.SHINING_OAK_PRESSURE_PLATE);
 		valueLookupBuilder(BlockTags.WOODEN_BUTTONS)
 				.add(ModBlocks.SHINING_OAK_BUTTON);
+		valueLookupBuilder(BlockTags.WOODEN_SHELVES)
+				.add(ModBlocks.SHINING_OAK_SHELF);
 		valueLookupBuilder(BlockTags.STANDING_SIGNS)
 				.add(ModBlocks.SHINING_OAK_SIGN);
 		valueLookupBuilder(BlockTags.WALL_SIGNS)

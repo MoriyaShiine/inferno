@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "shelf",
+  "key": {
+	"#": "inferno:stripped_shining_oak_log"
+  },
+  "pattern": [
+	"###",
+	"   ",
+	"###"
+  ],
+  "result": {
+	"count": 6,
+	"id": "inferno:shining_oak_shelf"
+  }
+}
