@@ -37,7 +37,7 @@
 ![On Soul Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/on_soul_fire.png?raw=true)
 
 ### Copper Fire
-- Blocks made out of Copper will burn with a green fire. Also adds Copper Campfires!
+- Blocks made out of Copper will burn with a green fire. Raw Copper Blocks will burn forever. Also adds Copper Campfires!
 
 ![Copper Fire](https://github.com/MoriyaShiine/inferno/blob/main/.webassets/copper_fire.gif?raw=true)
 
