@@ -1,4 +1,10 @@
 ------------------------------------------------------
+Version 1.21.11-r5
+------------------------------------------------------
+- add Hungarian translation, thanks nejlontacsko!
+  - merges https://github.com/MoriyaShiine/inferno/pull/9
+
+------------------------------------------------------
 Version 1.21.11-r4
 ------------------------------------------------------
 - add shining oak shelf
