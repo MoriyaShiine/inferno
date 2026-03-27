@@ -1,7 +1,8 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
-package moriyashiine.inferno.client.render.entity.state;
+
+package moriyashiine.inferno.client.renderer.entity.state;
 
 import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
 
@@ -10,7 +11,7 @@ public class SoulFireRenderState {
 
 	public boolean renderSoulFire = false;
 
-	public interface Command {
+	public interface Submit {
 		boolean inferno$renderSoulFire();
 
 		void inferno$setRenderSoulFire(boolean renderSoulFire);

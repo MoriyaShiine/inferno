@@ -1,0 +1,4 @@
+classTweaker v1 official
+accessible method net/minecraft/world/entity/EntityType boatFactory (Ljava/util/function/Supplier;)Lnet/minecraft/world/entity/EntityType$EntityFactory;
+accessible method net/minecraft/world/entity/EntityType chestBoatFactory (Ljava/util/function/Supplier;)Lnet/minecraft/world/entity/EntityType$EntityFactory;
+accessible method net/minecraft/world/level/block/FireBlock isValidFireLocation (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z

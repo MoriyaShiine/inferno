@@ -1,12 +1,13 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.common.init;
 
 import moriyashiine.inferno.common.Inferno;
 import moriyashiine.inferno.common.component.entity.EntityFireSpreadComponent;
 import moriyashiine.inferno.common.component.entity.OnSoulFireComponent;
-import net.minecraft.entity.Entity;
+import net.minecraft.world.entity.Entity;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.component.ComponentRegistry;
 import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;

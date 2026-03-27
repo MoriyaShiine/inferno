@@ -1,6 +1,7 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.data.provider;
 
 import moriyashiine.inferno.common.init.ModBlockFamilies;
@@ -8,69 +9,73 @@ import moriyashiine.inferno.common.init.ModBlocks;
 import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.strawberrylib.api.module.SLibDataUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.*;
-import net.minecraft.client.render.model.json.MultipartModelConditionBuilder;
-import net.minecraft.client.render.model.json.WeightedVariant;
-import net.minecraft.state.property.Properties;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.ConditionBuilder;
+import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-import static net.minecraft.client.data.BlockStateModelGenerator.*;
+import static net.minecraft.client.data.models.BlockModelGenerators.*;
 
 public class ModModelProvider extends FabricModelProvider {
-	public ModModelProvider(FabricDataOutput output) {
+	public ModModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator generator) {
+	public void generateBlockStateModels(BlockModelGenerators generators) {
 		// shining oak
-		generator.registerFlowerPotPlantAndItem(ModBlocks.SHINING_OAK_SAPLING, ModBlocks.POTTED_SHINING_OAK_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-		generator.createLogTexturePool(ModBlocks.SHINING_OAK_LOG).log(ModBlocks.SHINING_OAK_LOG).wood(ModBlocks.SHINING_OAK_WOOD);
-		generator.createLogTexturePool(ModBlocks.STRIPPED_SHINING_OAK_LOG).log(ModBlocks.STRIPPED_SHINING_OAK_LOG).wood(ModBlocks.STRIPPED_SHINING_OAK_WOOD);
-		generator.registerSimpleCubeAll(ModBlocks.IRON_SHINING_OAK_LEAVES);
-		generator.registerSimpleCubeAll(ModBlocks.GOLDEN_SHINING_OAK_LEAVES);
-		generator.registerCubeAllModelTexturePool(ModBlockFamilies.SHINING_OAK.getBaseBlock()).family(ModBlockFamilies.SHINING_OAK);
-		generator.registerShelf(ModBlocks.SHINING_OAK_SHELF, ModBlocks.STRIPPED_SHINING_OAK_LOG);
-		generator.registerHangingSign(ModBlocks.STRIPPED_SHINING_OAK_LOG, ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN);
+		generators.createPlantWithDefaultItem(ModBlocks.SHINING_OAK_SAPLING, ModBlocks.POTTED_SHINING_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+		generators.woodProvider(ModBlocks.SHINING_OAK_LOG).logWithHorizontal(ModBlocks.SHINING_OAK_LOG).wood(ModBlocks.SHINING_OAK_WOOD);
+		generators.woodProvider(ModBlocks.STRIPPED_SHINING_OAK_LOG).logWithHorizontal(ModBlocks.STRIPPED_SHINING_OAK_LOG).wood(ModBlocks.STRIPPED_SHINING_OAK_WOOD);
+		generators.createTrivialCube(ModBlocks.IRON_SHINING_OAK_LEAVES);
+		generators.createTrivialCube(ModBlocks.GOLDEN_SHINING_OAK_LEAVES);
+		generators.family(ModBlockFamilies.SHINING_OAK.getBaseBlock()).generateFor(ModBlockFamilies.SHINING_OAK);
+		generators.createShelf(ModBlocks.SHINING_OAK_SHELF, ModBlocks.STRIPPED_SHINING_OAK_LOG);
+		generators.createHangingSign(ModBlocks.STRIPPED_SHINING_OAK_LOG, ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN);
 		// remains
-		generator.registerAxisRotated(ModBlocks.CHARRED_LOG, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
-		SLibDataUtils.generateSoilBlock(generator, ModBlocks.SCORCHED_EARTH);
+		generators.createRotatedPillarWithHorizontalVariant(ModBlocks.CHARRED_LOG, TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
+		SLibDataUtils.createGrassLikeBlock(generators, ModBlocks.SCORCHED_EARTH);
 		// plants
-		generator.registerDoubleBlockAndItem(ModBlocks.BEARGRASS, BlockStateModelGenerator.CrossType.NOT_TINTED);
-		generator.registerFlowerPotPlantAndItem(ModBlocks.GOLDENROD, ModBlocks.POTTED_GOLDENROD, BlockStateModelGenerator.CrossType.NOT_TINTED);
-		generator.registerFlowerPotPlantAndItem(ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY, BlockStateModelGenerator.CrossType.NOT_TINTED);
-		generator.registerFlowerPotPlantAndItem(ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED, BlockStateModelGenerator.CrossType.NOT_TINTED);
-		generator.registerFlowerPotPlantAndItem(ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE, BlockStateModelGenerator.CrossType.NOT_TINTED);
+		generators.createDoublePlantWithDefaultItem(ModBlocks.BEARGRASS, BlockModelGenerators.PlantType.NOT_TINTED);
+		generators.createPlantWithDefaultItem(ModBlocks.GOLDENROD, ModBlocks.POTTED_GOLDENROD, BlockModelGenerators.PlantType.NOT_TINTED);
+		generators.createPlantWithDefaultItem(ModBlocks.GOLDEN_POPPY, ModBlocks.POTTED_GOLDEN_POPPY, BlockModelGenerators.PlantType.NOT_TINTED);
+		generators.createPlantWithDefaultItem(ModBlocks.FIREWEED, ModBlocks.POTTED_FIREWEED, BlockModelGenerators.PlantType.NOT_TINTED);
+		generators.createPlantWithDefaultItem(ModBlocks.PRAIRIE_FIRE, ModBlocks.POTTED_PRAIRIE_FIRE, BlockModelGenerators.PlantType.NOT_TINTED);
 		// copper fire
-		generator.registerCampfire(ModBlocks.COPPER_CAMPFIRE);
-		registerCopperFire(generator);
+		generators.createCampfires(ModBlocks.COPPER_CAMPFIRE);
+		registerCopperFire(generators);
 	}
 
 	@Override
-	public void generateItemModels(ItemModelGenerator generator) {
-		generator.register(ModItems.SHINING_OAK_RAFT, Models.GENERATED);
-		generator.register(ModItems.SHINING_OAK_CHEST_RAFT, Models.GENERATED);
+	public void generateItemModels(ItemModelGenerators generators) {
+		generators.generateFlatItem(ModItems.SHINING_OAK_RAFT, ModelTemplates.FLAT_ITEM);
+		generators.generateFlatItem(ModItems.SHINING_OAK_CHEST_RAFT, ModelTemplates.FLAT_ITEM);
 	}
 
-	private void registerCopperFire(BlockStateModelGenerator generator) {
-		MultipartModelConditionBuilder builder = createMultipartConditionBuilder()
-				.put(Properties.NORTH, false)
-				.put(Properties.EAST, false)
-				.put(Properties.SOUTH, false)
-				.put(Properties.WEST, false)
-				.put(Properties.UP, false);
-		WeightedVariant variant1 = generator.getFireFloorModels(ModBlocks.COPPER_FIRE);
-		WeightedVariant variant2 = generator.getFireSideModels(ModBlocks.COPPER_FIRE);
-		WeightedVariant variant3 = generator.getFireUpModels(ModBlocks.COPPER_FIRE);
-		generator.blockStateCollector
+	private void registerCopperFire(BlockModelGenerators generators) {
+		ConditionBuilder builder = condition()
+				.term(BlockStateProperties.NORTH, false)
+				.term(BlockStateProperties.EAST, false)
+				.term(BlockStateProperties.SOUTH, false)
+				.term(BlockStateProperties.WEST, false)
+				.term(BlockStateProperties.UP, false);
+		MultiVariant variant1 = generators.createFloorFireModels(ModBlocks.COPPER_FIRE);
+		MultiVariant variant2 = generators.createSideFireModels(ModBlocks.COPPER_FIRE);
+		MultiVariant variant3 = generators.createTopFireModels(ModBlocks.COPPER_FIRE);
+		generators.blockStateOutput
 				.accept(
-						MultipartBlockModelDefinitionCreator.create(ModBlocks.COPPER_FIRE)
+						MultiPartGenerator.multiPart(ModBlocks.COPPER_FIRE)
 								.with(builder, variant1)
-								.with(or(createMultipartConditionBuilder().put(Properties.NORTH, true), builder), variant2)
-								.with(or(createMultipartConditionBuilder().put(Properties.EAST, true), builder), variant2.apply(ROTATE_Y_90))
-								.with(or(createMultipartConditionBuilder().put(Properties.SOUTH, true), builder), variant2.apply(ROTATE_Y_180))
-								.with(or(createMultipartConditionBuilder().put(Properties.WEST, true), builder), variant2.apply(ROTATE_Y_270))
-								.with(createMultipartConditionBuilder().put(Properties.UP, true), variant3)
+								.with(or(condition().term(BlockStateProperties.NORTH, true), builder), variant2)
+								.with(or(condition().term(BlockStateProperties.EAST, true), builder), variant2.with(Y_ROT_90))
+								.with(or(condition().term(BlockStateProperties.SOUTH, true), builder), variant2.with(Y_ROT_180))
+								.with(or(condition().term(BlockStateProperties.WEST, true), builder), variant2.with(Y_ROT_270))
+								.with(condition().term(BlockStateProperties.UP, true), variant3)
 				);
 	}
 }

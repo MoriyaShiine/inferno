@@ -1,28 +1,30 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.data.provider;
 
 import moriyashiine.inferno.common.init.ModItems;
 import moriyashiine.inferno.common.tag.ModBlockTags;
 import moriyashiine.inferno.common.tag.ModItemTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import org.jspecify.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
-	public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture, BlockTagProvider blockTagProvider) {
-		super(output, registriesFuture, blockTagProvider);
+public class ModItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
+	public ModItemTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture, @Nullable BlockTagsProvider blockTagsProvider) {
+		super(output, registriesFuture, blockTagsProvider);
 	}
 
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+	protected void addTags(HolderLookup.Provider registries) {
 		// copies
 		copy(ModBlockTags.SHINING_OAK_LOGS, ModItemTags.SHINING_OAK_LOGS);
 		// CONVENTIONAL
@@ -74,7 +76,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		valueLookupBuilder(ItemTags.CHEST_BOATS)
 				.add(ModItems.SHINING_OAK_CHEST_RAFT);
 		// remains
-		copy(BlockTags.DIRT, ItemTags.DIRT);
+		copy(BlockTags.GRASS_BLOCKS, ItemTags.GRASS_BLOCKS);
 		valueLookupBuilder(ItemTags.FURNACE_MINECART_FUEL)
 				.add(ModItems.CHARRED_LOG);
 		// plants

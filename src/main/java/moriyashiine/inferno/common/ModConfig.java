@@ -1,6 +1,7 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.common;
 
 import eu.midnightdust.lib.config.MidnightConfig;

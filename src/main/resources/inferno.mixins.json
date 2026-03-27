@@ -1,37 +1,40 @@
 {
   "required": true,
   "package": "moriyashiine.inferno.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
 	"charredlogs.FireBlockMixin",
-	"copperfire.AbstractFireBlockMixin",
+	"copperfire.BaseFireBlockMixin",
 	"copperfire.FireBlockMixin",
-	"entityfirespread.AbstractFireBlockMixin",
+	"entityfirespread.BaseFireBlockMixin",
 	"entityfirespread.EntityMixin",
-	"entityfirespread.IgniteEnchantmentEffectMixin",
+	"entityfirespread.IgniteMixin",
 	"entityfirespread.ProjectileFireMixin",
-	"entityfirespread.ZombieEntityMixin",
-	"onsoulfire.AbstractFireBlockMixin",
+	"entityfirespread.ZombieMixin",
+	"onsoulfire.BaseFireBlockMixin",
 	"onsoulfire.CampfireBlockMixin",
 	"onsoulfire.EntityMixin",
 	"onsoulfire.ProjectileFireMixin",
-	"onsoulfire.ZombieEntityMixin",
+	"onsoulfire.ZombieMixin",
 	"scorchedearth.FireBlockMixin",
-	"scorchedearth.SpreadableBlockMixin",
-	"shiningoak.AbstractBoatEntityMixin",
+	"scorchedearth.SpreadingSnowyBlockMixin",
+	"shiningoak.AbstractBoatMixin",
 	"shiningoak.EntityMixin"
   ],
   "client": [
-	"lowerhudfire.client.InGameOverlayRendererMixin",
-	"onsoulfire.client.BatchingRenderCommandQueueMixin",
+	"lowerhudfire.client.ScreenEffectRendererMixin",
 	"onsoulfire.client.EntityRendererMixin",
-	"onsoulfire.client.FireCommandMixin",
-	"onsoulfire.client.FireCommandRendererMixin",
-	"onsoulfire.client.InGameOverlayRendererMixin",
-	"smokyfog.client.AtmosphericFogModifierMixin",
-	"smokyfog.client.ClientWorldMixin"
+	"onsoulfire.client.FlameFeatureRendererMixin",
+	"onsoulfire.client.FlameSubmitMixin",
+	"onsoulfire.client.ScreenEffectRendererMixin",
+	"onsoulfire.client.SubmitNodeCollectionMixin",
+	"smokyfog.client.AtmosphericFogEnvironmentMixin",
+	"smokyfog.client.ClientLevelMixin"
   ],
   "injectors": {
 	"defaultRequire": 1
+  },
+  "overwrites": {
+	"requireAnnotations": true
   }
 }

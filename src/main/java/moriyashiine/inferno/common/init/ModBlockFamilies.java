@@ -1,13 +1,14 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.common.init;
 
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
 
 public class ModBlockFamilies {
-	public static final BlockFamily SHINING_OAK = BlockFamilies.register(ModBlocks.SHINING_OAK_PLANKS)
+	public static final BlockFamily SHINING_OAK = BlockFamilies.familyBuilder(ModBlocks.SHINING_OAK_PLANKS)
 			.button(ModBlocks.SHINING_OAK_BUTTON)
 			.fence(ModBlocks.SHINING_OAK_FENCE)
 			.fenceGate(ModBlocks.SHINING_OAK_FENCE_GATE)
@@ -17,7 +18,7 @@ public class ModBlockFamilies {
 			.stairs(ModBlocks.SHINING_OAK_STAIRS)
 			.door(ModBlocks.SHINING_OAK_DOOR)
 			.trapdoor(ModBlocks.SHINING_OAK_TRAPDOOR)
-			.group("wooden")
-			.unlockCriterionName("has_planks")
-			.build();
+			.recipeGroupPrefix("wooden")
+			.recipeUnlockedBy("has_planks")
+			.getFamily();
 }

@@ -1,29 +1,30 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.data.provider;
 
 import moriyashiine.inferno.common.init.ModBlocks;
 import moriyashiine.inferno.common.tag.ModBlockTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
-import net.minecraft.block.Block;
-import net.minecraft.data.tag.ProvidedTagBuilder;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.tags.TagAppender;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-	public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
+	public ModBlockTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+	protected void addTags(HolderLookup.Provider registries) {
 		// INFERNO
 		valueLookupBuilder(ModBlockTags.GENERIC_IRON_BLOCKS)
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_IRON)
@@ -34,14 +35,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD)
 				.forceAddTag(BlockTags.GOLD_ORES);
 
-		ProvidedTagBuilder<Block, Block> copperFireBaseBlocks = valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS);
+		TagAppender<Block, Block> copperFireBaseBlocks = valueLookupBuilder(ModBlockTags.COPPER_FIRE_BASE_BLOCKS);
 		copperFireBaseBlocks.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
 				.forceAddTag(BlockTags.COPPER)
 				.forceAddTag(BlockTags.COPPER_ORES)
 				.forceAddTag(BlockTags.COPPER_CHESTS)
 				.forceAddTag(BlockTags.COPPER_GOLEM_STATUES);
-		Registries.BLOCK.forEach(block -> {
-			Identifier id = Registries.BLOCK.getId(block);
+		BuiltInRegistries.BLOCK.forEach(block -> {
+			Identifier id = BuiltInRegistries.BLOCK.getKey(block);
 			if (id.getNamespace().equals("minecraft") && id.getPath().contains("copper")) {
 				copperFireBaseBlocks.add(block);
 			}
@@ -104,13 +105,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 		valueLookupBuilder(BlockTags.WALL_HANGING_SIGNS)
 				.add(ModBlocks.SHINING_OAK_WALL_HANGING_SIGN);
 		// remains
-		valueLookupBuilder(BlockTags.AXE_MINEABLE)
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.add(ModBlocks.CHARRED_LOG);
-		valueLookupBuilder(BlockTags.SHOVEL_MINEABLE)
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
 				.add(ModBlocks.SCORCHED_EARTH);
-		valueLookupBuilder(BlockTags.DIRT)
-				.add(ModBlocks.SCORCHED_EARTH);
-		valueLookupBuilder(BlockTags.MUSHROOM_GROW_BLOCK)
+		valueLookupBuilder(BlockTags.GRASS_BLOCKS)
 				.add(ModBlocks.SCORCHED_EARTH);
 		// plants
 		valueLookupBuilder(BlockTags.BEE_ATTRACTIVE)
@@ -134,7 +133,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				.add(ModBlocks.POTTED_FIREWEED)
 				.add(ModBlocks.POTTED_PRAIRIE_FIRE);
 		// copper fire
-		valueLookupBuilder(BlockTags.AXE_MINEABLE)
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.add(ModBlocks.COPPER_CAMPFIRE);
 		valueLookupBuilder(BlockTags.CAMPFIRES)
 				.add(ModBlocks.COPPER_CAMPFIRE);

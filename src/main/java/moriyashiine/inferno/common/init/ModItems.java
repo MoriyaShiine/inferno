@@ -1,22 +1,23 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.common.init;
 
 import moriyashiine.inferno.common.Inferno;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ContainerComponent;
-import net.minecraft.item.*;
-import net.minecraft.text.Text;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.fabricmc.fabric.api.registry.CompostableRegistry;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemContainerContents;
 
 import static moriyashiine.strawberrylib.api.module.SLibRegistries.*;
 
 public class ModItems {
-	public static ItemGroup GROUP;
+	public static CreativeModeTab TAB;
 	// shining oak
 	public static final Item SHINING_OAK_SAPLING = registerBlockItem("shining_oak_sapling", ModBlocks.SHINING_OAK_SAPLING, fireproof());
 	public static final Item SHINING_OAK_LOG = registerBlockItem("shining_oak_log", ModBlocks.SHINING_OAK_LOG, fireproof());
@@ -34,11 +35,11 @@ public class ModItems {
 	public static final Item SHINING_OAK_TRAPDOOR = registerBlockItem("shining_oak_trapdoor", ModBlocks.SHINING_OAK_TRAPDOOR, fireproof());
 	public static final Item SHINING_OAK_PRESSURE_PLATE = registerBlockItem("shining_oak_pressure_plate", ModBlocks.SHINING_OAK_PRESSURE_PLATE, fireproof());
 	public static final Item SHINING_OAK_BUTTON = registerBlockItem("shining_oak_button", ModBlocks.SHINING_OAK_BUTTON, fireproof());
-	public static final Item SHINING_OAK_SHELF = registerBlockItem("shining_oak_shelf", ModBlocks.SHINING_OAK_SHELF, fireproof().component(DataComponentTypes.CONTAINER, ContainerComponent.DEFAULT));
-	public static final Item SHINING_OAK_SIGN = registerItem("shining_oak_sign", settings -> new SignItem(ModBlocks.SHINING_OAK_SIGN, ModBlocks.SHINING_OAK_WALL_SIGN, settings), fireproof().useBlockPrefixedTranslationKey().maxCount(16));
-	public static final Item SHINING_OAK_HANGING_SIGN = registerItem("shining_oak_hanging_sign", settings -> new HangingSignItem(ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN, settings), fireproof().useBlockPrefixedTranslationKey().maxCount(16));
-	public static final Item SHINING_OAK_RAFT = registerItem("shining_oak_raft", settings -> new BoatItem(ModEntityTypes.SHINING_OAK_RAFT, settings), fireproof().maxCount(1));
-	public static final Item SHINING_OAK_CHEST_RAFT = registerItem("shining_oak_chest_raft", settings -> new BoatItem(ModEntityTypes.SHINING_OAK_CHEST_RAFT, settings), fireproof().maxCount(1));
+	public static final Item SHINING_OAK_SHELF = registerBlockItem("shining_oak_shelf", ModBlocks.SHINING_OAK_SHELF, fireproof().component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+	public static final Item SHINING_OAK_SIGN = registerItem("shining_oak_sign", settings -> new SignItem(ModBlocks.SHINING_OAK_SIGN, ModBlocks.SHINING_OAK_WALL_SIGN, settings), fireproof().useBlockDescriptionPrefix().stacksTo(16));
+	public static final Item SHINING_OAK_HANGING_SIGN = registerItem("shining_oak_hanging_sign", settings -> new HangingSignItem(ModBlocks.SHINING_OAK_HANGING_SIGN, ModBlocks.SHINING_OAK_WALL_HANGING_SIGN, settings), fireproof().useBlockDescriptionPrefix().stacksTo(16));
+	public static final Item SHINING_OAK_RAFT = registerItem("shining_oak_raft", settings -> new BoatItem(ModEntityTypes.SHINING_OAK_RAFT, settings), fireproof().stacksTo(1));
+	public static final Item SHINING_OAK_CHEST_RAFT = registerItem("shining_oak_chest_raft", settings -> new BoatItem(ModEntityTypes.SHINING_OAK_CHEST_RAFT, settings), fireproof().stacksTo(1));
 	// remains
 	public static final Item CHARRED_LOG = registerBlockItem("charred_log", ModBlocks.CHARRED_LOG);
 	public static final Item SCORCHED_EARTH = registerBlockItem("scorched_earth", ModBlocks.SCORCHED_EARTH);
@@ -49,75 +50,75 @@ public class ModItems {
 	public static final Item FIREWEED = registerBlockItem("fireweed", ModBlocks.FIREWEED);
 	public static final Item PRAIRIE_FIRE = registerBlockItem("prairie_fire", ModBlocks.PRAIRIE_FIRE);
 	// copper fire
-	public static final Item COPPER_CAMPFIRE = registerBlockItem("copper_campfire", ModBlocks.COPPER_CAMPFIRE, new Item.Settings().component(DataComponentTypes.CONTAINER, ContainerComponent.DEFAULT));
+	public static final Item COPPER_CAMPFIRE = registerBlockItem("copper_campfire", ModBlocks.COPPER_CAMPFIRE, new Item.Properties().component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
-	private static Item.Settings fireproof() {
-		return new Item.Settings().fireproof();
+	private static Item.Properties fireproof() {
+		return new Item.Properties().fireResistant();
 	}
 
 	public static void init() {
-		GROUP = registerItemGroup(FabricItemGroup.builder().displayName(Text.translatable("itemGroup." + Inferno.MOD_ID)).icon(SHINING_OAK_SAPLING::getDefaultStack).entries((displayContext, entries) -> {
+		TAB = registerCreativeModeTab(FabricCreativeModeTab.builder().title(Component.translatable("itemGroup." + Inferno.MOD_ID)).icon(SHINING_OAK_SAPLING::getDefaultInstance).displayItems((_, output) -> {
 			// shining oak
-			entries.add(SHINING_OAK_SAPLING);
-			entries.add(SHINING_OAK_LOG);
-			entries.add(SHINING_OAK_WOOD);
-			entries.add(STRIPPED_SHINING_OAK_LOG);
-			entries.add(STRIPPED_SHINING_OAK_WOOD);
-			entries.add(IRON_SHINING_OAK_LEAVES);
-			entries.add(GOLDEN_SHINING_OAK_LEAVES);
-			entries.add(SHINING_OAK_PLANKS);
-			entries.add(SHINING_OAK_STAIRS);
-			entries.add(SHINING_OAK_SLAB);
-			entries.add(SHINING_OAK_FENCE);
-			entries.add(SHINING_OAK_FENCE_GATE);
-			entries.add(SHINING_OAK_DOOR);
-			entries.add(SHINING_OAK_TRAPDOOR);
-			entries.add(SHINING_OAK_PRESSURE_PLATE);
-			entries.add(SHINING_OAK_BUTTON);
-			entries.add(SHINING_OAK_SHELF);
-			entries.add(SHINING_OAK_SIGN);
-			entries.add(SHINING_OAK_HANGING_SIGN);
-			entries.add(SHINING_OAK_RAFT);
-			entries.add(SHINING_OAK_CHEST_RAFT);
+			output.accept(SHINING_OAK_SAPLING);
+			output.accept(SHINING_OAK_LOG);
+			output.accept(SHINING_OAK_WOOD);
+			output.accept(STRIPPED_SHINING_OAK_LOG);
+			output.accept(STRIPPED_SHINING_OAK_WOOD);
+			output.accept(IRON_SHINING_OAK_LEAVES);
+			output.accept(GOLDEN_SHINING_OAK_LEAVES);
+			output.accept(SHINING_OAK_PLANKS);
+			output.accept(SHINING_OAK_STAIRS);
+			output.accept(SHINING_OAK_SLAB);
+			output.accept(SHINING_OAK_FENCE);
+			output.accept(SHINING_OAK_FENCE_GATE);
+			output.accept(SHINING_OAK_DOOR);
+			output.accept(SHINING_OAK_TRAPDOOR);
+			output.accept(SHINING_OAK_PRESSURE_PLATE);
+			output.accept(SHINING_OAK_BUTTON);
+			output.accept(SHINING_OAK_SHELF);
+			output.accept(SHINING_OAK_SIGN);
+			output.accept(SHINING_OAK_HANGING_SIGN);
+			output.accept(SHINING_OAK_RAFT);
+			output.accept(SHINING_OAK_CHEST_RAFT);
 			// remains
-			entries.add(CHARRED_LOG);
-			entries.add(SCORCHED_EARTH);
+			output.accept(CHARRED_LOG);
+			output.accept(SCORCHED_EARTH);
 			// plants
-			entries.add(BEARGRASS);
-			entries.add(GOLDENROD);
-			entries.add(GOLDEN_POPPY);
-			entries.add(FIREWEED);
-			entries.add(PRAIRIE_FIRE);
+			output.accept(BEARGRASS);
+			output.accept(GOLDENROD);
+			output.accept(GOLDEN_POPPY);
+			output.accept(FIREWEED);
+			output.accept(PRAIRIE_FIRE);
 			// copper fire
-			entries.add(COPPER_CAMPFIRE);
+			output.accept(COPPER_CAMPFIRE);
 		}).build());
 
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addAfter(Items.PALE_OAK_BUTTON,
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> output.insertAfter(Items.PALE_OAK_BUTTON,
 				SHINING_OAK_LOG, SHINING_OAK_WOOD, STRIPPED_SHINING_OAK_LOG, STRIPPED_SHINING_OAK_WOOD, SHINING_OAK_PLANKS, SHINING_OAK_STAIRS, SHINING_OAK_SLAB, SHINING_OAK_FENCE, SHINING_OAK_FENCE_GATE, SHINING_OAK_DOOR, SHINING_OAK_TRAPDOOR, SHINING_OAK_PRESSURE_PLATE, SHINING_OAK_BUTTON,
 				CHARRED_LOG));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
-			entries.addAfter(Items.ROOTED_DIRT, SCORCHED_EARTH);
-			entries.addAfter(Items.PALE_OAK_LOG, SHINING_OAK_LOG, CHARRED_LOG);
-			entries.addAfter(Items.PALE_OAK_LEAVES, IRON_SHINING_OAK_LEAVES, GOLDEN_SHINING_OAK_LEAVES);
-			entries.addAfter(Items.PALE_OAK_SAPLING, SHINING_OAK_SAPLING);
-			entries.addAfter(Items.PITCHER_PLANT, BEARGRASS);
-			entries.addAfter(Items.WITHER_ROSE, GOLDENROD, GOLDEN_POPPY, FIREWEED, PRAIRIE_FIRE);
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(output -> {
+			output.insertAfter(Items.ROOTED_DIRT, SCORCHED_EARTH);
+			output.insertAfter(Items.PALE_OAK_LOG, SHINING_OAK_LOG, CHARRED_LOG);
+			output.insertAfter(Items.PALE_OAK_LEAVES, IRON_SHINING_OAK_LEAVES, GOLDEN_SHINING_OAK_LEAVES);
+			output.insertAfter(Items.PALE_OAK_SAPLING, SHINING_OAK_SAPLING);
+			output.insertAfter(Items.PITCHER_PLANT, BEARGRASS);
+			output.insertAfter(Items.WITHER_ROSE, GOLDENROD, GOLDEN_POPPY, FIREWEED, PRAIRIE_FIRE);
 		});
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.PALE_OAK_CHEST_BOAT,
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> output.insertAfter(Items.PALE_OAK_CHEST_BOAT,
 				SHINING_OAK_RAFT, SHINING_OAK_CHEST_RAFT));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
-			entries.addAfter(Items.PALE_OAK_SHELF, SHINING_OAK_SHELF);
-			entries.addAfter(Items.PALE_OAK_HANGING_SIGN, SHINING_OAK_SIGN, SHINING_OAK_HANGING_SIGN);
-			entries.addAfter(Items.SOUL_CAMPFIRE, COPPER_CAMPFIRE);
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(output -> {
+			output.insertAfter(Items.PALE_OAK_SHELF, SHINING_OAK_SHELF);
+			output.insertAfter(Items.PALE_OAK_HANGING_SIGN, SHINING_OAK_SIGN, SHINING_OAK_HANGING_SIGN);
+			output.insertAfter(Items.SOUL_CAMPFIRE, COPPER_CAMPFIRE);
 		});
 
-		FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(CHARRED_LOG, context.baseSmeltTime() * 40));
+		FuelValueEvents.BUILD.register((builder, context) -> builder.add(CHARRED_LOG, context.baseSmeltTime() * 40));
 
-		CompostingChanceRegistry.INSTANCE.add(CHARRED_LOG, 1F);
-		CompostingChanceRegistry.INSTANCE.add(BEARGRASS, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(GOLDENROD, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(GOLDEN_POPPY, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(FIREWEED, 0.65F);
-		CompostingChanceRegistry.INSTANCE.add(PRAIRIE_FIRE, 0.65F);
+		CompostableRegistry.INSTANCE.add(CHARRED_LOG, 1F);
+		CompostableRegistry.INSTANCE.add(BEARGRASS, 0.65F);
+		CompostableRegistry.INSTANCE.add(GOLDENROD, 0.65F);
+		CompostableRegistry.INSTANCE.add(GOLDEN_POPPY, 0.65F);
+		CompostableRegistry.INSTANCE.add(FIREWEED, 0.65F);
+		CompostableRegistry.INSTANCE.add(PRAIRIE_FIRE, 0.65F);
 	}
 }

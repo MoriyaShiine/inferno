@@ -1,13 +1,14 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.mixin.entityfirespread;
 
 import moriyashiine.inferno.common.init.ModEntityComponents;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LightningEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,16 +18,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
 	@Shadow
-	public abstract World getEntityWorld();
+	public abstract Level level();
 
-	@Inject(method = "onStruckByLightning", at = @At("TAIL"))
-	private void inferno$entityFireSpread(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
+	@Inject(method = "thunderHit", at = @At("TAIL"))
+	private void inferno$entityFireSpread(ServerLevel level, LightningBolt lightningBolt, CallbackInfo ci) {
 		ModEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
 	}
 
-	@Inject(method = "igniteByLava", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setOnFireFor(F)V"))
+	@Inject(method = "lavaIgnite", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
 	private void inferno$entityFireSpread(CallbackInfo ci) {
-		if (!getEntityWorld().isClient()) {
+		if (!level().isClientSide()) {
 			ModEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
 		}
 	}

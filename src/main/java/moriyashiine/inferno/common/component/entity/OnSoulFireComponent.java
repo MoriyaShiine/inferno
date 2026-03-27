@@ -1,12 +1,13 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.common.component.entity;
 
 import moriyashiine.inferno.common.init.ModEntityComponents;
-import net.minecraft.entity.Entity;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
 
@@ -20,20 +21,20 @@ public class OnSoulFireComponent implements AutoSyncedComponent, ServerTickingCo
 	}
 
 	@Override
-	public void readData(ReadView readView) {
-		onSoulFire = readView.getBoolean("OnSoulFire", false);
-		syncTicks = readView.getInt("SyncTicks", 0);
+	public void readData(ValueInput input) {
+		onSoulFire = input.getBooleanOr("OnSoulFire", false);
+		syncTicks = input.getIntOr("SyncTicks", 0);
 	}
 
 	@Override
-	public void writeData(WriteView writeView) {
-		writeView.putBoolean("OnSoulFire", onSoulFire);
-		writeView.putInt("SyncTicks", syncTicks);
+	public void writeData(ValueOutput output) {
+		output.putBoolean("OnSoulFire", onSoulFire);
+		output.putInt("SyncTicks", syncTicks);
 	}
 
 	@Override
 	public void serverTick() {
-		if (isOnSoulFire() && obj.getFireTicks() <= 0) {
+		if (isOnSoulFire() && obj.getRemainingFireTicks() <= 0) {
 			setOnSoulFire(false);
 			syncTicks = 3;
 		}

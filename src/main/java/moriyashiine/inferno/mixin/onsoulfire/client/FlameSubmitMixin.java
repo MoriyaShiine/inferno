@@ -1,15 +1,16 @@
 /*
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
+
 package moriyashiine.inferno.mixin.onsoulfire.client;
 
-import moriyashiine.inferno.client.render.entity.state.SoulFireRenderState;
-import net.minecraft.client.render.command.OrderedRenderCommandQueueImpl;
+import moriyashiine.inferno.client.renderer.entity.state.SoulFireRenderState;
+import net.minecraft.client.renderer.SubmitNodeStorage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(OrderedRenderCommandQueueImpl.FireCommand.class)
-public class FireCommandMixin implements SoulFireRenderState.Command {
+@Mixin(SubmitNodeStorage.FlameSubmit.class)
+public class FlameSubmitMixin implements SoulFireRenderState.Submit {
 	@Unique
 	private boolean renderSoulFire = false;
 
