@@ -22,6 +22,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider((fabricDataOutput, completableFuture) -> new ModItemTagsProvider(fabricDataOutput, completableFuture, blockTagProvider));
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
+		pack.addProvider(ModSoundsProvider::new);
 	}
 
 	@Override
