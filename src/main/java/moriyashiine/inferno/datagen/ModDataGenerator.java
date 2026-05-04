@@ -2,10 +2,10 @@
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
 
-package moriyashiine.inferno.data;
+package moriyashiine.inferno.datagen;
 
 import moriyashiine.inferno.common.init.ModWorldGeneration;
-import moriyashiine.inferno.data.provider.*;
+import moriyashiine.inferno.datagen.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;

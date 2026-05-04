@@ -20,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
 	"fabric-datagen": [
-	  "moriyashiine.inferno.data.ModDataGenerator"
+	  "moriyashiine.inferno.datagen.ModDataGenerator"
 	],
 	"main": [
 	  "moriyashiine.inferno.common.Inferno"

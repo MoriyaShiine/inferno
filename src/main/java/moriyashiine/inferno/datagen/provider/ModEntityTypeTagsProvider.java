@@ -2,7 +2,7 @@
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
 
-package moriyashiine.inferno.data.provider;
+package moriyashiine.inferno.datagen.provider;
 
 import moriyashiine.inferno.common.init.ModEntityTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
