@@ -4,9 +4,9 @@
 
 package moriyashiine.inferno.mixin.onsoulfire;
 
-import moriyashiine.inferno.common.ModConfig;
+import moriyashiine.inferno.common.InfernoConfig;
 import moriyashiine.inferno.common.component.entity.OnSoulFireComponent;
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
@@ -26,12 +26,12 @@ public abstract class ProjectileFireMixin extends Entity {
 
 	@Inject(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
 	private void inferno$onSoulFire(EntityHitResult hitResult, CallbackInfo ci) {
-		if (ModConfig.onSoulFire && !level().isClientSide()) {
-			boolean onSoulFire = ModEntityComponents.ON_SOUL_FIRE.get(this).isOnSoulFire();
-			OnSoulFireComponent onSoulFireComponent = ModEntityComponents.ON_SOUL_FIRE.get(hitResult.getEntity());
-			if (onSoulFireComponent.isOnSoulFire() != onSoulFire) {
-				onSoulFireComponent.setOnSoulFire(onSoulFire);
-				onSoulFireComponent.sync();
+		if (InfernoConfig.onSoulFire && !level().isClientSide()) {
+			boolean soulFire = InfernoEntityComponents.ON_SOUL_FIRE.get(this).isOnSoulFire();
+			OnSoulFireComponent onSoulFire = InfernoEntityComponents.ON_SOUL_FIRE.get(hitResult.getEntity());
+			if (onSoulFire.isOnSoulFire() != soulFire) {
+				onSoulFire.setOnSoulFire(soulFire);
+				onSoulFire.sync();
 			}
 		}
 	}

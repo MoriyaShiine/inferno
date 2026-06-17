@@ -7,7 +7,7 @@ package moriyashiine.inferno.mixin.shiningoak;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import moriyashiine.inferno.common.init.ModEntityTypes;
+import moriyashiine.inferno.common.init.InfernoEntityTypes;
 import moriyashiine.strawberrylib.api.module.SLibUtils;
 import moriyashiine.strawberrylib.api.objects.enums.SubmersionGate;
 import net.minecraft.sounds.SoundEvent;
@@ -58,7 +58,7 @@ public abstract class AbstractBoatMixin extends VehicleEntity {
 
 	@Unique
 	private boolean isShiningOak() {
-		return getType() == ModEntityTypes.SHINING_OAK_RAFT || getType() == ModEntityTypes.SHINING_OAK_CHEST_RAFT;
+		return getType() == InfernoEntityTypes.SHINING_OAK_RAFT || getType() == InfernoEntityTypes.SHINING_OAK_CHEST_RAFT;
 	}
 
 	@Unique

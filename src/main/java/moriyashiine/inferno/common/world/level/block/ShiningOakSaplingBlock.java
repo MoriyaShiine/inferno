@@ -6,7 +6,7 @@ package moriyashiine.inferno.common.world.level.block;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import moriyashiine.inferno.common.tag.ModBlockTags;
+import moriyashiine.inferno.common.tag.InfernoBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -19,8 +19,8 @@ public class ShiningOakSaplingBlock extends SaplingBlock {
 	public static final MapCodec<ShiningOakSaplingBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
 			TreeGrower.CODEC.fieldOf("iron_tree").forGetter(block -> block.treeGrower),
 			TreeGrower.CODEC.fieldOf("golden_tree").forGetter(block -> block.alternateTreeGrower),
-			propertiesCodec()).apply(instance, ShiningOakSaplingBlock::new)
-	);
+			propertiesCodec()
+	).apply(instance, ShiningOakSaplingBlock::new));
 
 	private final TreeGrower alternateTreeGrower;
 
@@ -41,9 +41,9 @@ public class ShiningOakSaplingBlock extends SaplingBlock {
 		} else {
 			TreeGrower grower;
 			BlockState baseState = level.getBlockState(pos.below(2));
-			if (baseState.is(ModBlockTags.GENERIC_IRON_BLOCKS)) {
+			if (baseState.is(InfernoBlockTags.GENERIC_IRON_BLOCKS)) {
 				grower = treeGrower;
-			} else if (baseState.is(ModBlockTags.GENERIC_GOLD_BLOCKS)) {
+			} else if (baseState.is(InfernoBlockTags.GENERIC_GOLD_BLOCKS)) {
 				grower = alternateTreeGrower;
 			} else {
 				grower = random.nextBoolean() ? treeGrower : alternateTreeGrower;

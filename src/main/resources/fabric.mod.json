@@ -20,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
 	"fabric-datagen": [
-	  "moriyashiine.inferno.datagen.ModDataGenerator"
+	  "moriyashiine.inferno.datagen.InfernoDataGenerator"
 	],
 	"main": [
 	  "moriyashiine.inferno.common.Inferno"
@@ -29,7 +29,7 @@
 	  "moriyashiine.inferno.client.InfernoClient"
 	],
 	"cardinal-components-entity": [
-	  "moriyashiine.inferno.common.init.ModEntityComponents"
+	  "moriyashiine.inferno.common.init.InfernoEntityComponents"
 	]
   },
   "mixins": [
@@ -38,7 +38,7 @@
   "accessWidener": "inferno.classtweaker",
   "depends": {
 	"fabricloader": "*",
-	"minecraft": "~26.1",
+	"minecraft": "~26.2",
 	"java": ">=25",
 	"fabric-api": "*",
 	"strawberrylib": "*"

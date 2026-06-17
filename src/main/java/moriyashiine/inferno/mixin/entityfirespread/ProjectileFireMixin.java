@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.mixin.entityfirespread;
 
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
@@ -25,7 +25,7 @@ public abstract class ProjectileFireMixin extends Entity {
 	@Inject(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
 	private void inferno$entityFireSpread(EntityHitResult hitResult, CallbackInfo ci) {
 		if (!level().isClientSide()) {
-			ModEntityComponents.ENTITY_FIRE_SPREAD.get(hitResult.getEntity()).setAllowFireSpread(true);
+			InfernoEntityComponents.ENTITY_FIRE_SPREAD.get(hitResult.getEntity()).setAllowFireSpread(true);
 		}
 	}
 }

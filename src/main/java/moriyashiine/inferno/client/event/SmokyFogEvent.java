@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.client.event;
 
-import moriyashiine.inferno.common.ModConfig;
+import moriyashiine.inferno.common.InfernoConfig;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -14,6 +14,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 
 public class SmokyFogEvent implements ClientTickEvents.EndLevelTick {
+	public static void init() {
+		ClientTickEvents.END_LEVEL_TICK.register(new SmokyFogEvent());
+	}
+
 	private static final int MAX_FIRE_BLOCKS = 64;
 	private static int fireBlocks = 0;
 
@@ -48,7 +52,7 @@ public class SmokyFogEvent implements ClientTickEvents.EndLevelTick {
 		if (!client.isPaused()) {
 			ticks++;
 		}
-		if (ModConfig.smokyFog && client.getCameraEntity() != null) {
+		if (InfernoConfig.smokyFog && client.getCameraEntity() != null) {
 			if (ticks % UPDATE_TICKS == 0) {
 				int[] counted = {0};
 				if (level.dimension() != Level.NETHER) {

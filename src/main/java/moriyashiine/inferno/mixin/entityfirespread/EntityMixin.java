@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.mixin.entityfirespread;
 
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LightningBolt;
@@ -22,13 +22,13 @@ public abstract class EntityMixin {
 
 	@Inject(method = "thunderHit", at = @At("TAIL"))
 	private void inferno$entityFireSpread(ServerLevel level, LightningBolt lightningBolt, CallbackInfo ci) {
-		ModEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
+		InfernoEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
 	}
 
 	@Inject(method = "lavaIgnite", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
 	private void inferno$entityFireSpread(CallbackInfo ci) {
 		if (!level().isClientSide()) {
-			ModEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
+			InfernoEntityComponents.ENTITY_FIRE_SPREAD.get(this).setAllowFireSpread(true);
 		}
 	}
 }

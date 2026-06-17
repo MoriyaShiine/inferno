@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.mixin.entityfirespread;
 
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.enchantment.EnchantedItemInUse;
@@ -19,6 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class IgniteMixin {
 	@Inject(method = "apply", at = @At("TAIL"))
 	private void inferno$entityFireSpread(ServerLevel serverLevel, int enchantmentLevel, EnchantedItemInUse item, Entity entity, Vec3 position, CallbackInfo ci) {
-		ModEntityComponents.ENTITY_FIRE_SPREAD.get(entity).setAllowFireSpread(true);
+		InfernoEntityComponents.ENTITY_FIRE_SPREAD.get(entity).setAllowFireSpread(true);
 	}
 }

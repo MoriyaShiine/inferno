@@ -5,13 +5,13 @@
 package moriyashiine.inferno.common.world.level.block;
 
 import com.mojang.serialization.MapCodec;
-import moriyashiine.inferno.common.init.ModBlocks;
-import moriyashiine.inferno.common.tag.ModBlockTags;
+import moriyashiine.inferno.common.init.InfernoBlocks;
+import moriyashiine.inferno.common.tag.InfernoBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.references.BlockIds;
+import net.minecraft.references.BlockItemIds;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -32,14 +32,14 @@ public class ScorchedEarthBlock extends SpreadingSnowyBlock implements Bonemeala
 
 	static {
 		RANDOM_ROLLS.add(Blocks.WITHER_ROSE, 1);
-		RANDOM_ROLLS.add(ModBlocks.SHINING_OAK_SAPLING, 5);
+		RANDOM_ROLLS.add(InfernoBlocks.SHINING_OAK_SAPLING, 5);
 		RANDOM_ROLLS.add(PLACEHOLDER, 15);
 	}
 
 	public static final MapCodec<ScorchedEarthBlock> CODEC = simpleCodec(ScorchedEarthBlock::new);
 
 	public ScorchedEarthBlock(Properties properties) {
-		super(properties, BlockIds.DIRT);
+		super(properties, BlockItemIds.DIRT.block());
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class ScorchedEarthBlock extends SpreadingSnowyBlock implements Bonemeala
 	private static Block getRandomRoll(RandomSource random) {
 		Block randomRoll = RANDOM_ROLLS.shuffle().stream().findFirst().orElse(PLACEHOLDER);
 		while (randomRoll == PLACEHOLDER) {
-			Optional<Holder<Block>> holder = BuiltInRegistries.BLOCK.getRandomElementOf(ModBlockTags.SCORCHED_EARTH_GROWABLES, random);
+			Optional<Holder<Block>> holder = BuiltInRegistries.BLOCK.getRandomElementOf(InfernoBlockTags.SCORCHED_EARTH_GROWABLES, random);
 			if (holder.isPresent()) {
 				randomRoll = holder.get().value();
 			} else {

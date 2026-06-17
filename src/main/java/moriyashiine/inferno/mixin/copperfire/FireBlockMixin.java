@@ -6,7 +6,7 @@ package moriyashiine.inferno.mixin.copperfire;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import moriyashiine.inferno.common.init.ModBlocks;
+import moriyashiine.inferno.common.init.InfernoBlocks;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,6 +21,6 @@ public abstract class FireBlockMixin extends BaseFireBlock {
 
 	@ModifyExpressionValue(method = "getStateWithAge", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Ljava/lang/Object;)Z"))
 	private boolean inferno$copperFire(boolean original, @Local(name = "stateForPlacement") BlockState stateForPlacement) {
-		return original || stateForPlacement.is(ModBlocks.COPPER_FIRE);
+		return original || stateForPlacement.is(InfernoBlocks.COPPER_FIRE);
 	}
 }

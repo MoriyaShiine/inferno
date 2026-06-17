@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.common.component.entity;
 
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -44,7 +44,7 @@ public class OnSoulFireComponent implements AutoSyncedComponent, ServerTickingCo
 	}
 
 	public void sync() {
-		ModEntityComponents.ON_SOUL_FIRE.sync(obj);
+		InfernoEntityComponents.ON_SOUL_FIRE.sync(obj);
 	}
 
 	public boolean isOnSoulFire() {

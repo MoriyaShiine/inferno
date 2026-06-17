@@ -1,7 +1,19 @@
 {
   "variants": {
-	"": {
-	  "model": "inferno:block/shining_oak_sign"
+	"facing=east": {
+	  "model": "inferno:block/shining_oak_wall_sign",
+	  "y": 270
+	},
+	"facing=north": {
+	  "model": "inferno:block/shining_oak_wall_sign",
+	  "y": 180
+	},
+	"facing=south": {
+	  "model": "inferno:block/shining_oak_wall_sign"
+	},
+	"facing=west": {
+	  "model": "inferno:block/shining_oak_wall_sign",
+	  "y": 90
 	}
   }
 }

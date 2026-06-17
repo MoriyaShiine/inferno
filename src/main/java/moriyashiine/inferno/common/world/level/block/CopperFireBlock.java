@@ -5,7 +5,7 @@
 package moriyashiine.inferno.common.world.level.block;
 
 import com.mojang.serialization.MapCodec;
-import moriyashiine.inferno.common.tag.ModBlockTags;
+import moriyashiine.inferno.common.tag.InfernoBlockTags;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -22,6 +22,6 @@ public class CopperFireBlock extends FireBlock {
 	}
 
 	public static boolean canSurviveOnBlock(BlockState state) {
-		return state.is(ModBlockTags.COPPER_FIRE_BASE_BLOCKS);
+		return state.is(InfernoBlockTags.COPPER_FIRE_BASE_BLOCKS);
 	}
 }

@@ -10,9 +10,6 @@ import moriyashiine.inferno.common.event.OnSoulFireEvent;
 import moriyashiine.inferno.common.event.TorchIgnitionEvent;
 import moriyashiine.inferno.common.init.*;
 import moriyashiine.strawberrylib.api.SLib;
-import moriyashiine.strawberrylib.api.event.AfterDamageIncludingDeathEvent;
-import moriyashiine.strawberrylib.api.event.ModifyDamageTakenEvent;
-import moriyashiine.strawberrylib.api.event.TickEntityEvent;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 
@@ -21,7 +18,7 @@ public class Inferno implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		MidnightConfig.init(MOD_ID, ModConfig.class);
+		MidnightConfig.init(MOD_ID, InfernoConfig.class);
 		SLib.init(MOD_ID);
 		initRegistries();
 		initEvents();
@@ -32,16 +29,16 @@ public class Inferno implements ModInitializer {
 	}
 
 	private void initRegistries() {
-		ModBlocks.init();
-		ModItems.init();
-		ModEntityTypes.init();
-		ModParticleTypes.init();
-		ModSoundEvents.init();
+		InfernoBlocks.init();
+		InfernoItems.init();
+		InfernoEntityTypes.init();
+		InfernoParticleTypes.init();
+		InfernoSoundEvents.init();
 	}
 
 	private void initEvents() {
-		TickEntityEvent.EVENT.register(new FireSpreadEvent());
-		ModifyDamageTakenEvent.MULTIPLY_BASE.register(new OnSoulFireEvent());
-		AfterDamageIncludingDeathEvent.EVENT.register(new TorchIgnitionEvent());
+		FireSpreadEvent.init();
+		OnSoulFireEvent.init();
+		TorchIgnitionEvent.init();
 	}
 }

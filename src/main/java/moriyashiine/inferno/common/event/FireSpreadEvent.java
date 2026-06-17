@@ -4,8 +4,8 @@
 
 package moriyashiine.inferno.common.event;
 
-import moriyashiine.inferno.common.ModConfig;
-import moriyashiine.inferno.common.init.ModEntityComponents;
+import moriyashiine.inferno.common.InfernoConfig;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
 import moriyashiine.strawberrylib.api.event.TickEntityEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -18,6 +18,10 @@ import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.gamerules.GameRules;
 
 public class FireSpreadEvent implements TickEntityEvent {
+	public static void init() {
+		TickEntityEvent.EVENT.register(new FireSpreadEvent());
+	}
+
 	private static final FireBlock FIRE = (FireBlock) Blocks.FIRE;
 	private static final BlockPos.MutableBlockPos POS = new BlockPos.MutableBlockPos();
 	private static final int RADIUS = 1;
@@ -25,7 +29,7 @@ public class FireSpreadEvent implements TickEntityEvent {
 	@Override
 	public void tick(Level level, Entity entity) {
 		if (level instanceof ServerLevel serverLevel) {
-			float chance = ModConfig.entityFireSpreadChance;
+			float chance = InfernoConfig.entityFireSpreadChance;
 			if (entity instanceof Projectile) {
 				chance /= 16;
 			}
@@ -45,7 +49,7 @@ public class FireSpreadEvent implements TickEntityEvent {
 
 	private boolean shouldSpreadFire(Entity entity) {
 		if (entity.isOnFire()) {
-			if (ModEntityComponents.ENTITY_FIRE_SPREAD.get(entity).allowsFireSpread()) {
+			if (InfernoEntityComponents.ENTITY_FIRE_SPREAD.get(entity).allowsFireSpread()) {
 				return true;
 			}
 			return !(entity instanceof LivingEntity);

@@ -6,7 +6,7 @@ package moriyashiine.inferno.mixin.shiningoak;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import moriyashiine.inferno.common.init.ModEntityTypes;
+import moriyashiine.inferno.common.init.InfernoEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
@@ -46,7 +46,7 @@ public abstract class EntityMixin {
 	private boolean pretendNotInLava() {
 		@Nullable Entity vehicle = getVehicle();
 		if (vehicle != null) {
-			if (vehicle.getType() == ModEntityTypes.SHINING_OAK_RAFT || vehicle.getType() == ModEntityTypes.SHINING_OAK_CHEST_RAFT) {
+			if (vehicle.getType() == InfernoEntityTypes.SHINING_OAK_RAFT || vehicle.getType() == InfernoEntityTypes.SHINING_OAK_CHEST_RAFT) {
 				for (int i = 1; i < Mth.ceil(getBbHeight()); i++) {
 					if (level().getFluidState(blockPosition().above(i)).is(FluidTags.LAVA)) {
 						return false;
