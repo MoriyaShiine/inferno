@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_hanging_sign_rot_0",
-  "textures": {
-	"all": "inferno:block/shining_oak_hanging_sign",
-	"particle": "inferno:block/stripped_shining_oak_log"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_sign_rot_1",
-  "textures": {
-	"all": "inferno:block/shining_oak_sign",
-	"particle": "inferno:block/shining_oak_planks"
-  }
-}

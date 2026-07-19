@@ -38,16 +38,17 @@ public class InfernoRecipeProvider extends FabricRecipeProvider {
 				planksFromLogs(InfernoItems.SHINING_OAK_PLANKS, InfernoItemTags.SHINING_OAK_LOGS, 4);
 				generateRecipes(InfernoBlockFamilies.SHINING_OAK_PLANKS, FeatureFlags.DEFAULT_FLAGS);
 				shelf(InfernoItems.SHINING_OAK_SHELF, InfernoItems.STRIPPED_SHINING_OAK_LOG);
+				hangingSign(InfernoItems.SHINING_OAK_HANGING_SIGN, InfernoItems.STRIPPED_SHINING_OAK_LOG);
 				woodenBoat(InfernoItems.SHINING_OAK_RAFT, InfernoItems.SHINING_OAK_PLANKS);
 				chestBoat(InfernoItems.SHINING_OAK_CHEST_RAFT, InfernoItems.SHINING_OAK_RAFT);
 				// remains
 				shapeless(RecipeCategory.MISC, Items.CHARCOAL, 4).requires(InfernoItems.CHARRED_LOG).unlockedBy("has_log", has(InfernoItems.CHARRED_LOG)).save(output);
 				// flowers
-				oneToOneConversionRecipe(Items.DYE.lightGray(), InfernoItems.BEARGRASS, "light_gray_dye", 2);
-				oneToOneConversionRecipe(Items.DYE.yellow(), InfernoItems.GOLDENROD, "yellow_dye");
-				oneToOneConversionRecipe(Items.DYE.orange(), InfernoItems.GOLDEN_POPPY, "orange_dye");
-				oneToOneConversionRecipe(Items.DYE.magenta(), InfernoItems.FIREWEED, "magenta_dye");
-				oneToOneConversionRecipe(Items.DYE.red(), InfernoItems.PRAIRIE_FIRE, "red_dye");
+				oneToOneConversionRecipe(Items.LIGHT_GRAY_DYE, InfernoItems.BEARGRASS, "light_gray_dye", 2);
+				oneToOneConversionRecipe(Items.YELLOW_DYE, InfernoItems.GOLDENROD, "yellow_dye");
+				oneToOneConversionRecipe(Items.ORANGE_DYE, InfernoItems.GOLDEN_POPPY, "orange_dye");
+				oneToOneConversionRecipe(Items.MAGENTA_DYE, InfernoItems.FIREWEED, "magenta_dye");
+				oneToOneConversionRecipe(Items.RED_DYE, InfernoItems.PRAIRIE_FIRE, "red_dye");
 				suspiciousStew(InfernoItems.GOLDENROD, SuspiciousEffectHolder.tryGet(InfernoItems.GOLDENROD));
 				suspiciousStew(InfernoItems.GOLDEN_POPPY, SuspiciousEffectHolder.tryGet(InfernoItems.GOLDEN_POPPY));
 				suspiciousStew(InfernoItems.FIREWEED, SuspiciousEffectHolder.tryGet(InfernoItems.FIREWEED));

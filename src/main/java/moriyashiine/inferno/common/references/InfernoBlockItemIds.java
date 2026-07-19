@@ -4,7 +4,7 @@
 
 package moriyashiine.inferno.common.references;
 
-import net.minecraft.references.BlockItemId;
+import moriyashiine.strawberrylib.api.objects.records.BlockItemId;
 
 import static moriyashiine.strawberrylib.api.module.SLibRegistries.blockItemId;
 

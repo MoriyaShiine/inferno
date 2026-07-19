@@ -36,6 +36,7 @@ public class InfernoModelProvider extends FabricModelProvider {
 		generators.createTrivialCube(InfernoBlocks.GOLDEN_SHINING_OAK_LEAVES);
 		generators.family(InfernoBlockFamilies.SHINING_OAK_PLANKS.getBaseBlock()).generateFor(InfernoBlockFamilies.SHINING_OAK_PLANKS);
 		generators.createShelf(InfernoBlocks.SHINING_OAK_SHELF, InfernoBlocks.STRIPPED_SHINING_OAK_LOG);
+		generators.createHangingSign(InfernoBlocks.STRIPPED_SHINING_OAK_LOG, InfernoBlocks.SHINING_OAK_HANGING_SIGN, InfernoBlocks.SHINING_OAK_WALL_HANGING_SIGN);
 		// remains
 		generators.createRotatedPillarWithHorizontalVariant(InfernoBlocks.CHARRED_LOG, TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
 		SLibDataUtils.createGrassLikeBlock(generators, InfernoBlocks.SCORCHED_EARTH);

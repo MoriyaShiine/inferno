@@ -11,11 +11,8 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class InfernoWorldGeneration {
@@ -26,11 +23,8 @@ public class InfernoWorldGeneration {
 	public static final ResourceKey<PlacedFeature> GOLDEN_SHINING_OAK_TREE = ResourceKey.create(Registries.PLACED_FEATURE, Inferno.id("golden_shining_oak_tree"));
 
 	public static void bootstrapConfigured(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-		HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
-		BlockStateProvider belowTrunkProvider = TreeConfiguration.defaultPlaceBelowTreeTrunkProvider(biomes);
-
-		FeatureUtils.register(context, IRON_SHINING_OAK_TREE_CONFIGURED, Feature.TREE, InfernoTreeGrowers.ironShiningOak(belowTrunkProvider).build());
-		FeatureUtils.register(context, GOLDEN_SHINING_OAK_TREE_CONFIGURED, Feature.TREE, InfernoTreeGrowers.goldenShiningOak(belowTrunkProvider).build());
+		FeatureUtils.register(context, IRON_SHINING_OAK_TREE_CONFIGURED, Feature.TREE, InfernoTreeGrowers.ironShiningOak().build());
+		FeatureUtils.register(context, GOLDEN_SHINING_OAK_TREE_CONFIGURED, Feature.TREE, InfernoTreeGrowers.goldenShiningOak().build());
 	}
 
 	public static void bootstrapPlaced(BootstrapContext<PlacedFeature> context) {

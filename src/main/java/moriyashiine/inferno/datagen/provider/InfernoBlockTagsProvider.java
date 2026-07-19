@@ -4,17 +4,16 @@
 
 package moriyashiine.inferno.datagen.provider;
 
-import moriyashiine.inferno.common.references.InfernoBlockIds;
-import moriyashiine.inferno.common.references.InfernoBlockItemIds;
+import moriyashiine.inferno.common.init.InfernoBlocks;
 import moriyashiine.inferno.common.tag.InfernoBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.tags.BlockItemTagAppender;
+import net.minecraft.data.tags.TagAppender;
 import net.minecraft.resources.Identifier;
-import net.minecraft.tags.BlockItemTags;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 
@@ -40,7 +39,7 @@ public class InfernoBlockTagsProvider extends FabricTagsProvider.BlockTagsProvid
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_GOLD)
 				.forceAddTag(BlockTags.GOLD_ORES);
 
-		BlockItemTagAppender<Block> copperFireBaseBlocks = builder(InfernoBlockTags.COPPER_FIRE_BASE_BLOCKS);
+		TagAppender<ResourceKey<Block>, Block> copperFireBaseBlocks = builder(InfernoBlockTags.COPPER_FIRE_BASE_BLOCKS);
 		copperFireBaseBlocks.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER)
 				.forceAddTag(BlockTags.COPPER)
 				.forceAddTag(BlockTags.COPPER_ORES)
@@ -55,99 +54,99 @@ public class InfernoBlockTagsProvider extends FabricTagsProvider.BlockTagsProvid
 				copperFireBaseBlocks.add(block.builtInRegistryHolder().key());
 			}
 		});
-		builder(InfernoBlockTags.SHINING_OAK_LOGS)
-				.add(InfernoBlockItemIds.SHINING_OAK_LOG)
-				.add(InfernoBlockItemIds.SHINING_OAK_WOOD)
-				.add(InfernoBlockItemIds.STRIPPED_SHINING_OAK_LOG)
-				.add(InfernoBlockItemIds.STRIPPED_SHINING_OAK_WOOD);
-		builder(InfernoBlockTags.SCORCHED_EARTH_GROWABLES)
-				.add(InfernoBlockItemIds.BEARGRASS)
-				.add(InfernoBlockItemIds.GOLDENROD)
-				.add(InfernoBlockItemIds.GOLDEN_POPPY)
-				.add(InfernoBlockItemIds.FIREWEED)
-				.add(InfernoBlockItemIds.PRAIRIE_FIRE);
+		valueLookupBuilder(InfernoBlockTags.SHINING_OAK_LOGS)
+				.add(InfernoBlocks.SHINING_OAK_LOG)
+				.add(InfernoBlocks.SHINING_OAK_WOOD)
+				.add(InfernoBlocks.STRIPPED_SHINING_OAK_LOG)
+				.add(InfernoBlocks.STRIPPED_SHINING_OAK_WOOD);
+		valueLookupBuilder(InfernoBlockTags.SCORCHED_EARTH_GROWABLES)
+				.add(InfernoBlocks.BEARGRASS)
+				.add(InfernoBlocks.GOLDENROD)
+				.add(InfernoBlocks.GOLDEN_POPPY)
+				.add(InfernoBlocks.FIREWEED)
+				.add(InfernoBlocks.PRAIRIE_FIRE);
 		// CONVENTIONAL
-		builder(ConventionalBlockTags.STRIPPED_LOGS)
-				.add(InfernoBlockItemIds.STRIPPED_SHINING_OAK_LOG);
-		builder(ConventionalBlockTags.STRIPPED_WOODS)
-				.add(InfernoBlockItemIds.STRIPPED_SHINING_OAK_WOOD);
-		builder(ConventionalBlockTags.WOODEN_FENCES)
-				.add(InfernoBlockItemIds.SHINING_OAK_FENCE);
-		builder(ConventionalBlockTags.WOODEN_FENCE_GATES)
-				.add(InfernoBlockItemIds.SHINING_OAK_FENCE_GATE);
+		valueLookupBuilder(ConventionalBlockTags.STRIPPED_LOGS)
+				.add(InfernoBlocks.STRIPPED_SHINING_OAK_LOG);
+		valueLookupBuilder(ConventionalBlockTags.STRIPPED_WOODS)
+				.add(InfernoBlocks.STRIPPED_SHINING_OAK_WOOD);
+		valueLookupBuilder(ConventionalBlockTags.WOODEN_FENCES)
+				.add(InfernoBlocks.SHINING_OAK_FENCE);
+		valueLookupBuilder(ConventionalBlockTags.WOODEN_FENCE_GATES)
+				.add(InfernoBlocks.SHINING_OAK_FENCE_GATE);
 		// VANILLA
 		// shining oak
-		builder(BlockTags.LOGS)
+		valueLookupBuilder(BlockTags.LOGS)
 				.addTag(InfernoBlockTags.SHINING_OAK_LOGS);
-		builder(BlockItemTags.SAPLINGS.block())
-				.add(InfernoBlockItemIds.SHINING_OAK_SAPLING);
-		builder(BlockTags.LEAVES)
-				.add(InfernoBlockItemIds.IRON_SHINING_OAK_LEAVES)
-				.add(InfernoBlockItemIds.GOLDEN_SHINING_OAK_LEAVES);
-		builder(BlockTags.PLANKS)
-				.add(InfernoBlockItemIds.SHINING_OAK_PLANKS);
-		builder(BlockTags.WOODEN_STAIRS)
-				.add(InfernoBlockItemIds.SHINING_OAK_STAIRS);
-		builder(BlockTags.WOODEN_SLABS)
-				.add(InfernoBlockItemIds.SHINING_OAK_SLAB);
-		builder(BlockTags.WOODEN_FENCES)
-				.add(InfernoBlockItemIds.SHINING_OAK_FENCE);
-		builder(BlockTags.FENCE_GATES)
-				.add(InfernoBlockItemIds.SHINING_OAK_FENCE_GATE);
-		builder(BlockTags.WOODEN_DOORS)
-				.add(InfernoBlockItemIds.SHINING_OAK_DOOR);
-		builder(BlockTags.WOODEN_TRAPDOORS)
-				.add(InfernoBlockItemIds.SHINING_OAK_TRAPDOOR);
-		builder(BlockTags.WOODEN_PRESSURE_PLATES)
-				.add(InfernoBlockItemIds.SHINING_OAK_PRESSURE_PLATE);
-		builder(BlockTags.WOODEN_BUTTONS)
-				.add(InfernoBlockItemIds.SHINING_OAK_BUTTON);
-		builder(BlockTags.WOODEN_SHELVES)
-				.add(InfernoBlockItemIds.SHINING_OAK_SHELF);
-		builder(BlockTags.STANDING_SIGNS)
-				.add(InfernoBlockItemIds.SHINING_OAK_SIGN);
-		builder(BlockTags.WALL_SIGNS)
-				.add(InfernoBlockIds.SHINING_OAK_WALL_SIGN);
-		builder(BlockTags.CEILING_HANGING_SIGNS)
-				.add(InfernoBlockItemIds.SHINING_OAK_HANGING_SIGN);
-		builder(BlockTags.WALL_HANGING_SIGNS)
-				.add(InfernoBlockIds.SHINING_OAK_WALL_HANGING_SIGN);
+		valueLookupBuilder(BlockTags.SAPLINGS)
+				.add(InfernoBlocks.SHINING_OAK_SAPLING);
+		valueLookupBuilder(BlockTags.LEAVES)
+				.add(InfernoBlocks.IRON_SHINING_OAK_LEAVES)
+				.add(InfernoBlocks.GOLDEN_SHINING_OAK_LEAVES);
+		valueLookupBuilder(BlockTags.PLANKS)
+				.add(InfernoBlocks.SHINING_OAK_PLANKS);
+		valueLookupBuilder(BlockTags.WOODEN_STAIRS)
+				.add(InfernoBlocks.SHINING_OAK_STAIRS);
+		valueLookupBuilder(BlockTags.WOODEN_SLABS)
+				.add(InfernoBlocks.SHINING_OAK_SLAB);
+		valueLookupBuilder(BlockTags.WOODEN_FENCES)
+				.add(InfernoBlocks.SHINING_OAK_FENCE);
+		valueLookupBuilder(BlockTags.FENCE_GATES)
+				.add(InfernoBlocks.SHINING_OAK_FENCE_GATE);
+		valueLookupBuilder(BlockTags.WOODEN_DOORS)
+				.add(InfernoBlocks.SHINING_OAK_DOOR);
+		valueLookupBuilder(BlockTags.WOODEN_TRAPDOORS)
+				.add(InfernoBlocks.SHINING_OAK_TRAPDOOR);
+		valueLookupBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+				.add(InfernoBlocks.SHINING_OAK_PRESSURE_PLATE);
+		valueLookupBuilder(BlockTags.WOODEN_BUTTONS)
+				.add(InfernoBlocks.SHINING_OAK_BUTTON);
+		valueLookupBuilder(BlockTags.WOODEN_SHELVES)
+				.add(InfernoBlocks.SHINING_OAK_SHELF);
+		valueLookupBuilder(BlockTags.STANDING_SIGNS)
+				.add(InfernoBlocks.SHINING_OAK_SIGN);
+		valueLookupBuilder(BlockTags.WALL_SIGNS)
+				.add(InfernoBlocks.SHINING_OAK_WALL_SIGN);
+		valueLookupBuilder(BlockTags.CEILING_HANGING_SIGNS)
+				.add(InfernoBlocks.SHINING_OAK_HANGING_SIGN);
+		valueLookupBuilder(BlockTags.WALL_HANGING_SIGNS)
+				.add(InfernoBlocks.SHINING_OAK_WALL_HANGING_SIGN);
 		// remains
-		builder(BlockTags.MINEABLE_WITH_AXE)
-				.add(InfernoBlockItemIds.CHARRED_LOG);
-		builder(BlockTags.MINEABLE_WITH_SHOVEL)
-				.add(InfernoBlockItemIds.SCORCHED_EARTH);
-		builder(BlockTags.GRASS_BLOCKS)
-				.add(InfernoBlockItemIds.SCORCHED_EARTH);
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
+				.add(InfernoBlocks.CHARRED_LOG);
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
+				.add(InfernoBlocks.SCORCHED_EARTH);
+		valueLookupBuilder(BlockTags.GRASS_BLOCKS)
+				.add(InfernoBlocks.SCORCHED_EARTH);
 		// plants
-		builder(BlockTags.BEE_ATTRACTIVE)
-				.add(InfernoBlockItemIds.BEARGRASS)
-				.add(InfernoBlockItemIds.GOLDENROD)
-				.add(InfernoBlockItemIds.GOLDEN_POPPY)
-				.add(InfernoBlockItemIds.FIREWEED)
-				.add(InfernoBlockItemIds.PRAIRIE_FIRE);
-		builder(BlockTags.FLOWERS)
-				.add(InfernoBlockItemIds.BEARGRASS);
-		builder(BlockTags.SMALL_FLOWERS)
-				.add(InfernoBlockItemIds.GOLDENROD)
-				.add(InfernoBlockItemIds.GOLDEN_POPPY)
-				.add(InfernoBlockItemIds.FIREWEED)
-				.add(InfernoBlockItemIds.PRAIRIE_FIRE);
+		valueLookupBuilder(BlockTags.BEE_ATTRACTIVE)
+				.add(InfernoBlocks.BEARGRASS)
+				.add(InfernoBlocks.GOLDENROD)
+				.add(InfernoBlocks.GOLDEN_POPPY)
+				.add(InfernoBlocks.FIREWEED)
+				.add(InfernoBlocks.PRAIRIE_FIRE);
+		valueLookupBuilder(BlockTags.FLOWERS)
+				.add(InfernoBlocks.BEARGRASS);
+		valueLookupBuilder(BlockTags.SMALL_FLOWERS)
+				.add(InfernoBlocks.GOLDENROD)
+				.add(InfernoBlocks.GOLDEN_POPPY)
+				.add(InfernoBlocks.FIREWEED)
+				.add(InfernoBlocks.PRAIRIE_FIRE);
 		// flower pots
-		builder(BlockTags.FLOWER_POTS)
-				.add(InfernoBlockIds.POTTED_SHINING_OAK_SAPLING)
-				.add(InfernoBlockIds.POTTED_GOLDENROD)
-				.add(InfernoBlockIds.POTTED_GOLDEN_POPPY)
-				.add(InfernoBlockIds.POTTED_FIREWEED)
-				.add(InfernoBlockIds.POTTED_PRAIRIE_FIRE);
+		valueLookupBuilder(BlockTags.FLOWER_POTS)
+				.add(InfernoBlocks.POTTED_SHINING_OAK_SAPLING)
+				.add(InfernoBlocks.POTTED_GOLDENROD)
+				.add(InfernoBlocks.POTTED_GOLDEN_POPPY)
+				.add(InfernoBlocks.POTTED_FIREWEED)
+				.add(InfernoBlocks.POTTED_PRAIRIE_FIRE);
 		// copper fire
-		builder(BlockTags.MINEABLE_WITH_AXE)
-				.add(InfernoBlockItemIds.COPPER_CAMPFIRE);
-		builder(BlockTags.CAMPFIRES)
-				.add(InfernoBlockItemIds.COPPER_CAMPFIRE);
-		builder(BlockTags.FIRE)
-				.add(InfernoBlockIds.COPPER_FIRE);
-		builder(BlockTags.INFINIBURN_OVERWORLD)
+		valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
+				.add(InfernoBlocks.COPPER_CAMPFIRE);
+		valueLookupBuilder(BlockTags.CAMPFIRES)
+				.add(InfernoBlocks.COPPER_CAMPFIRE);
+		valueLookupBuilder(BlockTags.FIRE)
+				.add(InfernoBlocks.COPPER_FIRE);
+		valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
 				.forceAddTag(ConventionalBlockTags.STORAGE_BLOCKS_RAW_COPPER);
 	}
 }

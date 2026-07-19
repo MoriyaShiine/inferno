@@ -11,7 +11,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.references.BlockItemIds;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -39,7 +38,7 @@ public class ScorchedEarthBlock extends SpreadingSnowyBlock implements Bonemeala
 	public static final MapCodec<ScorchedEarthBlock> CODEC = simpleCodec(ScorchedEarthBlock::new);
 
 	public ScorchedEarthBlock(Properties properties) {
-		super(properties, BlockItemIds.DIRT.block());
+		super(properties, Blocks.DIRT.builtInRegistryHolder().key());
 	}
 
 	@Override

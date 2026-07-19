@@ -9,12 +9,9 @@ import net.minecraft.data.BlockFamily;
 
 public class InfernoBlockFamilies {
 	public static final BlockFamily SHINING_OAK_PLANKS = BlockFamilies.familyBuilder(InfernoBlocks.SHINING_OAK_PLANKS)
-			.log(InfernoBlocks.SHINING_OAK_LOG)
-			.strippedLog(InfernoBlocks.STRIPPED_SHINING_OAK_LOG)
 			.button(InfernoBlocks.SHINING_OAK_BUTTON)
 			.fence(InfernoBlocks.SHINING_OAK_FENCE)
 			.fenceGate(InfernoBlocks.SHINING_OAK_FENCE_GATE)
-			.hangingSign(InfernoBlocks.SHINING_OAK_HANGING_SIGN, InfernoBlocks.SHINING_OAK_WALL_HANGING_SIGN)
 			.pressurePlate(InfernoBlocks.SHINING_OAK_PRESSURE_PLATE)
 			.sign(InfernoBlocks.SHINING_OAK_SIGN, InfernoBlocks.SHINING_OAK_WALL_SIGN)
 			.slab(InfernoBlocks.SHINING_OAK_SLAB)

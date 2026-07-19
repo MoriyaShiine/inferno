@@ -25,7 +25,9 @@
 	"lowerhudfire.client.ScreenEffectRendererMixin",
 	"onsoulfire.client.EntityRendererMixin",
 	"onsoulfire.client.FlameFeatureRendererMixin",
+	"onsoulfire.client.FlameSubmitMixin",
 	"onsoulfire.client.ScreenEffectRendererMixin",
+	"onsoulfire.client.SubmitNodeCollectionMixin",
 	"smokyfog.client.AtmosphericFogEnvironmentMixin",
 	"smokyfog.client.ClientLevelMixin"
   ],

@@ -10,4 +10,10 @@ public class SoulFireRenderState {
 	public static final RenderStateDataKey<SoulFireRenderState> KEY = RenderStateDataKey.create(() -> "soul fire");
 
 	public boolean renderSoulFire = false;
+
+	public interface Submit {
+		boolean inferno$renderSoulFire();
+
+		void inferno$setRenderSoulFire(boolean renderSoulFire);
+	}
 }

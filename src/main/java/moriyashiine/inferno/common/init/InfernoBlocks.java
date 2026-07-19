@@ -19,7 +19,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityTypes;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -185,12 +185,12 @@ public class InfernoBlocks {
 		registerBlockType("falling_pillar", CharredLogBlock.CODEC);
 		StrippableBlockRegistry.register(SHINING_OAK_LOG, STRIPPED_SHINING_OAK_LOG);
 		StrippableBlockRegistry.register(SHINING_OAK_WOOD, STRIPPED_SHINING_OAK_WOOD);
-		BlockEntityTypes.SHELF.addValidBlock(SHINING_OAK_SHELF);
-		BlockEntityTypes.SIGN.addValidBlock(SHINING_OAK_SIGN);
-		BlockEntityTypes.SIGN.addValidBlock(SHINING_OAK_WALL_SIGN);
-		BlockEntityTypes.HANGING_SIGN.addValidBlock(SHINING_OAK_HANGING_SIGN);
-		BlockEntityTypes.HANGING_SIGN.addValidBlock(SHINING_OAK_WALL_HANGING_SIGN);
-		BlockEntityTypes.CAMPFIRE.addValidBlock(COPPER_CAMPFIRE);
+		BlockEntityType.SHELF.addValidBlock(SHINING_OAK_SHELF);
+		BlockEntityType.SIGN.addValidBlock(SHINING_OAK_SIGN);
+		BlockEntityType.SIGN.addValidBlock(SHINING_OAK_WALL_SIGN);
+		BlockEntityType.HANGING_SIGN.addValidBlock(SHINING_OAK_HANGING_SIGN);
+		BlockEntityType.HANGING_SIGN.addValidBlock(SHINING_OAK_WALL_HANGING_SIGN);
+		BlockEntityType.CAMPFIRE.addValidBlock(COPPER_CAMPFIRE);
 		// vanilla
 		FlammableBlockRegistry.getDefaultInstance().add(Blocks.GRASS_BLOCK, 60, 100);
 		FlammableBlockRegistry.getDefaultInstance().add(Blocks.PODZOL, 60, 100);

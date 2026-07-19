@@ -12,11 +12,11 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ScreenEffectRenderer.class)
 public class ScreenEffectRendererMixin {
-	@ModifyArg(method = "lambda$submitFire$0", at = @At(value = "INVOKE", target = "Lorg/joml/Matrix4f;translate(FFF)Lorg/joml/Matrix4f;"), index = 1)
-	private static float inferno$lowerHudFire(float y) {
+	@ModifyArg(method = "renderFire", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;translate(FFF)V"), index = 1)
+	private static float inferno$lowerHudFire(float xo) {
 		if (InfernoConfig.lowerHudFire) {
-			return y - 0.175F;
+			return xo - 0.175F;
 		}
-		return y;
+		return xo;
 	}
 }
