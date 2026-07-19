@@ -1,0 +1,27 @@
+package moriyashiine.inferno.mixin.onsoulfire;
+
+import moriyashiine.inferno.common.InfernoConfig;
+import moriyashiine.inferno.common.component.entity.OnSoulFireComponent;
+import moriyashiine.inferno.common.init.InfernoEntityComponents;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.zombie.Zombie;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(Zombie.class)
+public class ZombieMixin {
+	@Inject(method = "doHurtTarget", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
+	private void inferno$onSoulFire(ServerLevel level, Entity target, CallbackInfoReturnable<Boolean> cir) {
+		if (InfernoConfig.onSoulFire) {
+			boolean soulFire = InfernoEntityComponents.ON_SOUL_FIRE.get(this).isOnSoulFire();
+			OnSoulFireComponent onSoulFire = InfernoEntityComponents.ON_SOUL_FIRE.get(target);
+			if (onSoulFire.isOnSoulFire() != soulFire) {
+				onSoulFire.setOnSoulFire(soulFire);
+				onSoulFire.sync();
+			}
+		}
+	}
+}

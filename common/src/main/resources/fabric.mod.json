@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+	"MoriyaShiine",
+	"8onfire",
+	"cybercat5555",
+	"EightSidedSquare"
+  ],
+  "contact": {
+	"homepage": "https://modrinth.com/mod/${project_name}",
+	"sources": "https://github.com/MoriyaShiine/${project_name}",
+	"issues": "https://github.com/MoriyaShiine/${project_name}/issues"
+  },
+  "license": "All Rights Reserved",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+	"fabric-datagen": [
+	  "moriyashiine.inferno.datagen.InfernoDataGenerator"
+	],
+	"main": [
+	  "moriyashiine.inferno.common.Inferno"
+	],
+	"client": [
+	  "moriyashiine.inferno.client.InfernoClient"
+	],
+	"cardinal-components-entity": [
+	  "moriyashiine.inferno.common.init.InfernoEntityComponents"
+	]
+  },
+  "mixins": [
+	"${mod_id}.mixins.json"
+  ],
+  "accessWidener": "${mod_id}.classtweaker",
+  "depends": {
+	"fabricloader": "*",
+	"minecraft": "~26.1",
+	"java": ">=25",
+	"fabric-api": "*",
+	"strawberrylib": "*"
+  },
+  "custom": {
+	"launchpad:compatible": true,
+	"cardinal-components": [
+	  "${mod_id}:entity_fire_spread",
+	  "${mod_id}:on_soul_fire"
+	]
+  }
+}

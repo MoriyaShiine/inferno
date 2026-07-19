@@ -1,0 +1,15 @@
+package moriyashiine.inferno.client.renderer.entity.state;
+
+import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
+
+public class SoulFireRenderState {
+	public static final RenderStateDataKey<SoulFireRenderState> KEY = RenderStateDataKey.create(() -> "soul fire");
+
+	public boolean renderSoulFire = false;
+
+	public interface Submit {
+		boolean inferno$renderSoulFire();
+
+		void inferno$setRenderSoulFire(boolean renderSoulFire);
+	}
+}
