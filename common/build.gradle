@@ -14,7 +14,7 @@ dependencies {
 	minecraft("com.mojang:minecraft:${minecraft_version}")
 	compileOnly("net.fabricmc:fabric-loader:${loader_version}")
 
-	compileOnlyApi("maven.modrinth:midnightlib:${midnightlib_version}")
+	compileOnlyApi("maven.modrinth:midnightlib:${midnightlib_version}-fabric")
 
 	localImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
 	localImplementation("moriyashiine.strawberrylib:strawberrylib-fabric:${strawberrylib_version}")

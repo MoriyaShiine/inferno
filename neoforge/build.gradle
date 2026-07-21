@@ -56,7 +56,7 @@ dependencies {
 	forgeUserdev("net.neoforged:neoforge:${neoforge_version}:userdev")
 	implementation("org.sinytra.launchpad:launchpad:${launchpad_version}")
 
-	includeApi("maven.modrinth:midnightlib:${midnightlib_version}")
+	includeApi("maven.modrinth:midnightlib:${midnightlib_version}-neoforge")
 
 	neoForgeAccessTransformers(neoForgeInterfaceInjections(implementation("org.sinytra.forgified-fabric-api:forgified-fabric-api:${forgified_fabric_api_version}")))
 	implementation("moriyashiine.strawberrylib:strawberrylib-neoforge:${strawberrylib_version}")
