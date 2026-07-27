@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_sign",
+  "textures": {
+	"all": "inferno:block/shining_oak_sign",
+	"particle": "inferno:block/shining_oak_planks"
+  }
+}

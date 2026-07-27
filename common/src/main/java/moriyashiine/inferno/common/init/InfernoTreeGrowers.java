@@ -26,7 +26,7 @@ public class InfernoTreeGrowers {
 			Optional.empty()
 	);
 
-	public static TreeConfiguration.TreeConfigurationBuilder ironShiningOak() {
+	public static TreeConfiguration.TreeConfigurationBuilder ironShiningOak(BlockStateProvider belowTrunkProvider) {
 		return new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(InfernoBlocks.SHINING_OAK_LOG),
 				new CherryTrunkPlacer(
@@ -40,11 +40,12 @@ public class InfernoTreeGrowers {
 				),
 				BlockStateProvider.simple(InfernoBlocks.IRON_SHINING_OAK_LEAVES),
 				new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
-				new TwoLayersFeatureSize(1, 0, 2)
+				new TwoLayersFeatureSize(1, 0, 2),
+				belowTrunkProvider
 		).ignoreVines();
 	}
 
-	public static TreeConfiguration.TreeConfigurationBuilder goldenShiningOak() {
+	public static TreeConfiguration.TreeConfigurationBuilder goldenShiningOak(BlockStateProvider belowTrunkProvider) {
 		return new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(InfernoBlocks.SHINING_OAK_LOG),
 				new CherryTrunkPlacer(
@@ -58,7 +59,8 @@ public class InfernoTreeGrowers {
 				),
 				BlockStateProvider.simple(InfernoBlocks.GOLDEN_SHINING_OAK_LEAVES),
 				new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
-				new TwoLayersFeatureSize(1, 0, 2)
+				new TwoLayersFeatureSize(1, 0, 2),
+				belowTrunkProvider
 		).ignoreVines();
 	}
 }
