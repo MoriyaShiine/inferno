@@ -1,10 +1,10 @@
 package moriyashiine.inferno.mixin.smokyfog.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import moriyashiine.inferno.client.event.SmokyFogEvent;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.AtmosphericFogEnvironment;
@@ -28,8 +28,8 @@ public class AtmosphericFogEnvironmentMixin {
 	}
 
 	@ModifyReturnValue(method = "getBaseColor", at = @At("RETURN"))
-	private int inferno$smokyFog(int original) {
-		float progress = SmokyFogEvent.getProgress(Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(false));
+	private int inferno$smokyFog(int original, @Local(argsOnly = true) float partialTicks) {
+		float progress = SmokyFogEvent.getProgress(partialTicks);
 		if (progress > 0) {
 			Vector3f color = ARGB.vector3fFromRGB24(original);
 			float green = color.y();

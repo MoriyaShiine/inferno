@@ -1,6 +1,7 @@
 package moriyashiine.inferno.client.event;
 
 import moriyashiine.inferno.common.InfernoConfig;
+import moriyashiine.strawberrylib.api.module.SLibClientUtils;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -18,15 +19,15 @@ public class SmokyFogEvent implements ClientTickEvents.EndLevelTick {
 	private static int fireBlocks = 0;
 
 	private static final int UPDATE_TICKS = 10;
-	private static int ticks = 0, targetFireBlocks = 0;
+	private static int targetFireBlocks = 0;
 	private static float lastProgress = 0, progress = 0;
 
 	public static boolean hasMaxFireBlocks() {
 		return fireBlocks == MAX_FIRE_BLOCKS;
 	}
 
-	public static float getProgress(float tickProgress) {
-		return Mth.lerp(tickProgress, lastProgress, progress);
+	public static float getProgress(float partialTicks) {
+		return Mth.lerp(partialTicks, lastProgress, progress);
 	}
 
 	private static float calculateProgress() {
@@ -36,7 +37,7 @@ public class SmokyFogEvent implements ClientTickEvents.EndLevelTick {
 	@Override
 	public void onEndTick(ClientLevel level) {
 		lastProgress = progress;
-		if (ticks % (fireBlocks < targetFireBlocks ? 1 : 2) == 0) {
+		if (SLibClientUtils.getTickCount() % (fireBlocks < targetFireBlocks ? 1 : 2) == 0) {
 			if (fireBlocks > targetFireBlocks) {
 				fireBlocks--;
 			} else if (fireBlocks < targetFireBlocks) {
@@ -45,11 +46,8 @@ public class SmokyFogEvent implements ClientTickEvents.EndLevelTick {
 			fireBlocks = Mth.clamp(fireBlocks, 0, MAX_FIRE_BLOCKS);
 		}
 		Minecraft client = Minecraft.getInstance();
-		if (!client.isPaused()) {
-			ticks++;
-		}
 		if (InfernoConfig.smokyFog && client.getCameraEntity() != null) {
-			if (ticks % UPDATE_TICKS == 0) {
+			if (SLibClientUtils.getTickCount() % UPDATE_TICKS == 0) {
 				int[] counted = {0};
 				if (level.dimension() != Level.NETHER) {
 					final int range = 16;
